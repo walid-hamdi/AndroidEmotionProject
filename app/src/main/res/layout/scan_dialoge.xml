@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/dialoge_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center|center"
+            android:text="Your Emotion?"
+            android:textColor="@color/blue"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/scanButtonDialoge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/scan_button"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/cancelButtonDialoge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/dialoge_background"
+            android:text="Cancel"
+            android:textColor="@color/blue" />
+
+
+    </LinearLayout>
+</RelativeLayout>

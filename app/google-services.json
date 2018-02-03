@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "219414549922",
+    "firebase_url": "https://startupproejctemotion.firebaseio.com",
+    "project_id": "startupproejctemotion",
+    "storage_bucket": "startupproejctemotion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219414549922:android:7bf0115e7d8307f6",
+        "android_client_info": {
+          "package_name": "com.upfunstudio.emotionsocial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219414549922-ldsftion8gt58loblvps8v1dmlao7lnp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.upfunstudio.emotionsocial",
+            "certificate_hash": "49fe1310941d971e6e92cdab0866638289a023b1"
+          }
+        },
+        {
+          "client_id": "219414549922-i8s7lpneeu19t46ldeqeeo6mcfckkmo4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0ePcKWHk-IQVZF4jhdzyguSAQxmC8ZzQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219414549922-i8s7lpneeu19t46ldeqeeo6mcfckkmo4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

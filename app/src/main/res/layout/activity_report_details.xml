@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.upfunstudio.emotionsocial.ReportDetailsActivity">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+
+        <com.github.mikephil.charting.charts.HorizontalBarChart
+            android:id="@+id/chartAnalyse"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:background="@android:color/white" />
+
+
+        <TextView
+            android:id="@+id/typeOfEmotion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Your emotion is happy"
+            android:textColor="@color/blue"
+            android:textSize="25dp" />
+
+
+    </LinearLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPagerTips"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_below="@+id/layout"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/blue"></android.support.v4.view.ViewPager>
+
+
+    <LinearLayout
+        android:id="@+id/viewp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewPagerTips"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="3dp"
+
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/saveButtonReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:onClick="buSaveReport"
+            android:text="Save"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/cancelButtonReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:onClick="buCancelReport"
+            android:text="Cancel"
+            android:textColor="#ffffff" />
+
+
+    </LinearLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPagerDoctorSuggest"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_below="@+id/viewp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/blue">
+
+
+    </android.support.v4.view.ViewPager>
+
+
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Emotion Social</string>
+    <array name="textIntro">
+        <item>Do it now</item>
+        <item>Consult Doctor</item>
+
+    </array>
+
+</resources>

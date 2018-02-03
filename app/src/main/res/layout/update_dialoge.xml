@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:background="@color/grey"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/changeFullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_background"
+        android:hint="Change FullName"
+        android:textColor="@color/blue"
+        android:textColorHint="#cc5c5c" />
+
+    <EditText
+        android:id="@+id/chngeMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_background"
+        android:hint="Change Email"
+        android:textColor="@color/blue"
+        android:textColorHint="#cc5c5c" />
+
+    <EditText
+        android:id="@+id/chnagePhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_background"
+        android:hint="Change Phone"
+        android:textColor="@color/blue"
+        android:textColorHint="#cc5c5c" />
+
+    <EditText
+        android:id="@+id/chnageCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_background"
+        android:hint="Change City"
+        android:textColor="@color/blue"
+        android:textColorHint="#cc5c5c" />
+
+    <EditText
+        android:id="@+id/chageLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_background"
+        android:hint="Change Speak language"
+        android:textColor="@color/blue"
+        android:textColorHint="#cc5c5c" />
+
+    <Button
+        android:id="@+id/updateNowButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_background"
+        android:text="Update now"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/CancelUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_pay_background"
+        android:text="Cancel"
+        android:textColor="#ffffff" />
+
+
+</LinearLayout>
