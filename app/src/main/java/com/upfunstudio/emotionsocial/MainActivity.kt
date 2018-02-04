@@ -88,7 +88,9 @@ class MainActivity : AppCompatActivity() {
 
         val listNamesDr = arrayListOf<String>("Ahmed Ali", "Walid Hamdi", "Ali Saif")
         val listCitiesDr = arrayListOf<String>("Kaiouan", "Nebel", "Sidi bouzid")
-        val listPicturesDr = arrayListOf<Int>(R.drawable.dr_photo, R.drawable.dr_photo, R.drawable.dr_photo)
+        val listPicturesDr = arrayListOf<Int>(R.drawable.dr_photo,
+                R.drawable.photo_2,
+                R.drawable.photo_3)
 
         override fun getItemCount(): Int {
 
