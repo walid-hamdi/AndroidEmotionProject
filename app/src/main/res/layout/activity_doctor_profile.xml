@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/doctorProfileLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.upfunstudio.emotionsocial.DoctorProfileActivity">
+    tools:context="com.upfunstudio.emotionsocial.User.DoctorProfileAppearForUserActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@drawable/profile_image"
-        android:scaleType="center" />
+        android:background="@color/colorPrimary"
+        android:contentDescription="TODO"
+        android:scaleType="center"
+        tools:ignore="ContentDescription" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_picture"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="131dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/dr_photo" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/profile_photo" />
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/dr_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/profile_picture"
+        android:layout_centerInParent="true"
         android:gravity="center"
         android:text="Default name"
         android:textColor="@color/blue"
@@ -35,7 +37,8 @@
         android:id="@+id/cityPlace"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
+        android:layout_below="@+id/dr_name"
+        android:layout_centerInParent="true"
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="Default city"
@@ -43,11 +46,11 @@
         android:textSize="17dp" />
 
     <LinearLayout
+        android:id="@+id/infoPer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_below="@id/cityPlace"
-        android:layout_margin="5dp"
+        android:layout_marginTop="30dp"
         android:background="@color/grey"
         android:gravity="center"
         android:orientation="vertical">
@@ -56,15 +59,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="0"
             android:gravity="center"
             android:text="Personal info"
-            android:textSize="20dp" />
+            android:textSize="22dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="5dp"
+            android:layout_weight="0"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -73,10 +78,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/ic_phone_black_24dp" />
+                android:background="@drawable/ic_phone_black_24dp"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/emailDefault"
+                android:id="@+id/phoneDefault"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -89,6 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:layout_weight="0"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -96,10 +104,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/ic_email_black_24dp" />
+                android:background="@drawable/ic_email_black_24dp"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/phoneDefault"
+                android:id="@+id/emailDefault"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Default Mail" />
@@ -109,8 +119,10 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:layout_weight="0"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -118,10 +130,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/ic_language_black_24dp" />
+                android:background="@drawable/ic_language_black_24dp"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/languageSpeak"
+                android:id="@+id/languageDefault"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Default Language" />
@@ -133,6 +147,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:layout_weight="0"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -140,7 +155,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/ic_hdr_weak_black_24dp" />
+                android:background="@drawable/ic_hdr_weak_black_24dp"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/specialityText"
@@ -152,26 +169,16 @@
         </LinearLayout>
 
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:background="@drawable/button_pay_background"
-            android:onClick="payNowEvent"
-            android:text="GET IT NOW"
-            android:textColor="#ffffff" />
-
-        <Button
-            android:id="@+id/returnHomeButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:background="@drawable/button_background"
-            android:text="Home"
-            android:textColor="#ffffff" />
-
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/availableButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="4dp"
+        android:background="@drawable/button_background"
+        android:textColor="#ffffff" />
 
 
 </RelativeLayout>

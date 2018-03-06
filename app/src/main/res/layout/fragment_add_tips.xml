@@ -1,0 +1,81 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="com.upfunstudio.emotionsocial.Dr.AddTipsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:text="Add new tip"
+            android:textColor="#ffffff"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/titleAddTips"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="0"
+            android:background="@drawable/add_tips_background"
+            android:hint="Add title tip"
+            android:padding="10dp"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:textSize="20dp"
+            android:id="@+id/contentTips"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="0"
+            android:background="@drawable/add_tips_background"
+            android:gravity="top|left"
+            android:hint="Add The content"
+            android:padding="10dp"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/addNewTip"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="0"
+            android:background="@drawable/add_tips_background"
+            android:text="Add Now"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="0"
+            android:background="@drawable/add_tips_background"
+            android:text="Cancel"
+            android:textColor="#ffffff" />
+
+    </LinearLayout>
+
+
+</FrameLayout>

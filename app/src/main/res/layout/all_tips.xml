@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="102dp"
+    android:layout_margin="1dp"
+    card:cardCornerRadius="3dp"
+    card:cardElevation="2dp">
+
+    <RelativeLayout
+        android:id="@+id/layoutAllTips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_light_background">
+
+        <ImageView
+            android:id="@+id/decorate"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:background="@drawable/psycho" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@+id/decorate"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titleAlltips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0"
+                android:text="Psycho"
+                android:textColor="@color/blue"
+                android:textSize="20dp"
+                android:textStyle="italic|bold" />
+
+            <TextView
+                android:id="@+id/dateAllTips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/titleAlltips"
+                android:layout_margin="5dp"
+                android:text="15/17/20" />
+
+
+            <TextView
+                android:id="@+id/publishedBy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dateAllTips"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:text=""
+                android:textColor="@color/blueTrans"
+                android:textSize="16dp" />
+
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/addFavButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="16dp"
+            android:background="@drawable/ic_favorite_red_24dp" />
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

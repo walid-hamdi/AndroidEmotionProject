@@ -8,71 +8,107 @@
 
     <EditText
         android:id="@+id/changeFullname"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
+        android:layout_weight="0"
         android:background="@drawable/edit_background"
-        android:hint="Change FullName"
+        android:hint="Full Name"
+        android:padding="10dp"
         android:textColor="@color/blue"
-        android:textColorHint="#cc5c5c" />
+        android:textColorHint="@color/blueTrans" />
 
     <EditText
         android:id="@+id/chngeMail"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
+        android:layout_weight="0"
         android:background="@drawable/edit_background"
-        android:hint="Change Email"
+        android:hint="Email"
+        android:padding="10dp"
         android:textColor="@color/blue"
-        android:textColorHint="#cc5c5c" />
+        android:textColorHint="@color/blueTrans" />
 
     <EditText
-        android:id="@+id/chnagePhone"
-        android:layout_width="match_parent"
+        android:id="@+id/changePhone"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
+        android:layout_weight="0"
         android:background="@drawable/edit_background"
-        android:hint="Change Phone"
+        android:hint="Phone"
+        android:padding="10dp"
         android:textColor="@color/blue"
-        android:textColorHint="#cc5c5c" />
+        android:textColorHint="@color/blueTrans" />
+
 
     <EditText
         android:id="@+id/chnageCity"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
+        android:layout_weight="0"
         android:background="@drawable/edit_background"
-        android:hint="Change City"
+        android:hint="City"
+        android:padding="10dp"
         android:textColor="@color/blue"
-        android:textColorHint="#cc5c5c" />
+        android:textColorHint="@color/blueTrans" />
 
     <EditText
         android:id="@+id/chageLanguage"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
+        android:layout_weight="0"
         android:background="@drawable/edit_background"
-        android:hint="Change Speak language"
+        android:hint="Language"
+        android:padding="10dp"
         android:textColor="@color/blue"
-        android:textColorHint="#cc5c5c" />
+        android:textColorHint="@color/blueTrans" />
+
+    <EditText
+        android:id="@+id/chageSpec"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
+        android:layout_weight="0"
+        android:background="@drawable/edit_background"
+        android:hint="Speciality"
+        android:padding="10dp"
+        android:textColor="@color/blue"
+        android:textColorHint="@color/blueTrans" />
 
     <Button
         android:id="@+id/updateNowButton"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
+        android:layout_weight="0"
         android:background="@drawable/button_background"
+        android:padding="10dp"
         android:text="Update now"
         android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/CancelUpdate"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@drawable/button_pay_background"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
+        android:layout_marginTop="1dp"
+        android:layout_weight="0"
+        android:background="@drawable/edit_background"
+        android:padding="10dp"
         android:text="Cancel"
-        android:textColor="#ffffff" />
+        android:textColor="@color/blue" />
 
 
 </LinearLayout>

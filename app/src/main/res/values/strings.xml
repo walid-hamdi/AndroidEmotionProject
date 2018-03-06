@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">Emotion Social</string>
-    <array name="textIntro">
-        <item>Do it now</item>
-        <item>Consult Doctor</item>
 
-    </array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

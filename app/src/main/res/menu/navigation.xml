@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/doctorList"
+        android:icon="@drawable/ic_person_white_24dp"
+        android:title="Doctors" />
+
+    <item
+        android:id="@+id/DoctorsTips"
+        android:icon="@drawable/ic_layers_white_24dp"
+        android:title="Psycho Tips" />
+    <item
+        android:id="@+id/RecentConsult"
+        android:icon="@drawable/ic_consult_24dp"
+        android:title="Consults" />
+
+</menu>

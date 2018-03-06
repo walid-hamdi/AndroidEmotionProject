@@ -3,30 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.upfunstudio.emotionsocial.ProfileActivity">
+    tools:context="com.upfunstudio.emotionsocial.User.SettingsUserActivity">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/profile_image"
-        android:scaleType="center" />
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        android:contentDescription="TODO"
+        android:scaleType="center"
+        tools:ignore="ContentDescription" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_picture"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="131dp"
-        android:layout_marginTop="96dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
         android:onClick="updatePhotoEvent"
-        android:src="@drawable/photo" />
+
+        android:src="@drawable/profile_photo" />
+
 
     <TextView
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/profile_picture"
+        android:layout_centerInParent="true"
         android:gravity="center"
         android:text="Default name"
         android:textColor="@color/blue"
@@ -37,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/username"
+        android:layout_centerInParent="true"
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="Default city"
@@ -46,11 +50,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_below="@id/cityPlace"
-        android:layout_margin="5dp"
         android:background="@color/grey"
         android:gravity="center"
+        android:layout_marginTop="30dp"
         android:orientation="vertical">
 
         <TextView
@@ -64,9 +67,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_margin="5dp"
-            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageButton
@@ -74,10 +75,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/ic_phone_black_24dp" />
+                android:background="@drawable/ic_phone_black_24dp"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/emailDefault"
+                android:id="@+id/defaultPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -97,10 +100,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/ic_email_black_24dp" />
+                android:background="@drawable/ic_email_black_24dp"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/phoneDefault"
+                android:id="@+id/defaultEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Default Mail" />
@@ -119,7 +124,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/ic_language_black_24dp" />
+                android:background="@drawable/ic_language_black_24dp"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/languageSpeak"
@@ -130,28 +137,42 @@
 
         </LinearLayout>
 
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:layout_weight="0"
             android:background="@drawable/button_background"
             android:onClick="historyReportEvent"
-            android:text="History report"
+            android:text="History reports"
             android:textColor="#ffffff" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:layout_weight="0"
             android:background="@drawable/edit_background"
             android:onClick="updateInfoEvent"
             android:text="Update info"
             android:textColor="#5D656B" />
 
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:layout_weight="0"
             android:background="@drawable/edit_background"
             android:onClick="goHomeEvent"
             android:text="Home"
@@ -159,6 +180,5 @@
 
 
     </LinearLayout>
-
 
 </RelativeLayout>

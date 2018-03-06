@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.upfunstudio.emotionsocial.StartActivity">
+    tools:context="com.upfunstudio.emotionsocial.Companion.StartActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
 
         <LinearLayout
             android:id="@+id/layoutDots"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
@@ -27,7 +27,21 @@
             android:gravity="center"
             android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/dotOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#8226;"
+                android:textColor="@color/blue"
+                android:textSize="60dp" />
 
+            <TextView
+                android:id="@+id/dotTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#8226;"
+                android:textColor="@color/blueTrans"
+                android:textSize="60dp" />
 
 
         </LinearLayout>

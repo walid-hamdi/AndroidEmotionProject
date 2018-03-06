@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.upfunstudio.emotionsocial.Dr.SetttingsDoctorActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        android:contentDescription="TODO"
+        android:scaleType="center"
+        tools:ignore="ContentDescription" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_picture"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:onClick="updatePictureDoctor"
+        android:src="@drawable/profile_photo" />
+
+    <TextView
+        android:id="@+id/dr_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_picture"
+        android:gravity="center"
+        android:text="Default name"
+        android:textColor="@color/blue"
+        android:textSize="24dp"
+        android:textStyle="italic|bold" />
+
+    <TextView
+        android:id="@+id/cityPlace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dr_name"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Default city"
+        android:textColor="@color/blueTrans"
+        android:textSize="17dp"
+        android:textStyle="italic" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cityPlace"
+        android:layout_marginTop="30dp"
+        android:background="@color/grey"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Personal info"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_phone_black_24dp"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/phoneDr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Default Phone" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_email_black_24dp"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/mailDr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Default Mail" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_language_black_24dp"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/languageDr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Default Language" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_hdr_weak_black_24dp"
+                android:contentDescription="TODO"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/speciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Default Speciality" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:gravity="center_horizontal"
+                android:text="Online/Offline"
+                android:textColor="@color/blue"
+                android:textSize="17dp" />
+
+            <Switch
+                android:id="@+id/connectStateSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textColor="@color/blue"
+                android:textOff="Offline"
+                android:textOn="Online" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="0"
+            android:background="@drawable/edit_background"
+            android:onClick="updateDrNowEvent"
+            android:text="Update"
+            android:textColor="@color/blue" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="0"
+            android:background="@drawable/button_background"
+            android:onClick="goHomeDrEvent"
+            android:text="Home"
+            android:textColor="#ffffff" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+

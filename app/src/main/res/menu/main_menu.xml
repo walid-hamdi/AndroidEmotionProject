@@ -3,13 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/app_bar_search"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/profileMenu"
+        android:icon="@drawable/ic_account_circle_black_24dp"
         android:title="Profile"
         app:showAsAction="never" />
     <item
+        android:id="@+id/fav"
+        android:icon="@drawable/ic_favorite_white_24dp"
+        android:title="fav"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/AnalyseMenu"
+        android:icon="@drawable/ic_camera_white_24dp"
         android:title="Analyse"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/logoutMenu"
         android:title="Logout"
