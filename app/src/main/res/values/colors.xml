@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2699FB</color>
-    <color name="colorPrimaryDark">#2699FB</color>
-    <color name="colorAccent">#576066</color>
-    <color name="blue">#5199D2</color>
-    <color name="blueTrans">#c15199d2</color>
-    <color name="grey">#eff2f4</color>
-    <color name="green">#00b33c</color>
-    <color name="red">#ff0000</color>
+    <color name="colorPrimaryDark">#7B74AB</color>
+    <color name="colorPrimary">#857AB1</color>
+
+    <color name="colorAccent">#2f3555</color>
+
+    <color name="bg_row_background">#fa315b</color>
+    <color name="doctorListColor">#F9FAFB</color>
+    <color name="titleColor">#304555</color>
+    <color name="descriptionTitleColor">#4A5B69</color>
+    <color name="scanWindowColor">#1DB5F2</color>
+    <color name="buttonColor">#7B74AB</color>
+    <color name="buttonColorTrans">#857AB1</color>
+    <color name="white">#ffffff</color>
 
 
 </resources>

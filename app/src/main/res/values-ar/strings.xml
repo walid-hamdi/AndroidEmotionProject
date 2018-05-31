@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">استشارت طبيب و تحليل الحالة النفسية</string>
+    <string name="your_emotion_text_intro"> حالتك النقسية ? </string>
+    <string name="cosult_dr_text_intro">استشر طبيب الان</string>
+    <string name="Info_text">معلومة</string>
+    <string name="details_Info_text">اذا اردت الدخول فقط لمتابعة احدث النصائح الطبية و القيام بتحاليل يمكنك الدخول مباشرة</string>
+    <string name="start_text">الدخول مباشرة</string>
+    <string name="use_accout_text">استعمل حسابك</string>
+    <string name="update_wor_text">تحتاج الي تحديث خدمات google</string>
+    <string name="meg_verify_phone">رقمك لا يتيح لك بان تدخل</string>
+    <string name="welcome_ack_msg">مرحبا بكم مرت من جديد :)</string>
+    <string name="msg_icorge_to_update">ارجو ان تحدث ملوماتك ليتسني لك استعمال كل الميزات :)</string>
+    <string name="try_agai">جرب ثانية :)</string>
+    <string name="connection_down">مشكلة في النت</string>
+    <string name="loadig_to_load">...جاري الدخول</string>
+    <string name="verify_email_msg">الرجاء من تنشيط حسابك ثم الدخول</string>
+    <string name="somethig_wor">هناك خطاء</string>
+    <string name="msg_ente_the_password">الرجاء ادخال كلمة السر</string>
+    <string name="please_enter_the_email">الرجاء ادخال EMAIL</string>
+    <string name="call_now">...جاري الاتصال</string>
+    <string name="want_to_call">...لديك من يريك اتشارتك</string>
+    <string name="please_try_to_call_later">ارجوك حاول الاتصال لاحقا</string>
+    <string name="tip_msg">عنوان النصيحة</string>
+    <string name="dsc_msg">محتوي النصيحة</string>
+    <string name="update_first">عليك تحديت معلوماتك اولا</string>
+    <string name="tip_exit_msg">لا يوجد اي نصيحة</string>
+    <string name="add">...جاري الاضافة</string>
+    <string name="add_tip_sucess">شكرا لقد تم عملية الاضافة بنجاح</string>
+    <string name="fail_to_add_tip">فشل في الاضافة</string>
+    <string name="please_refresh">تنشيط النت</string>
+    <string name="accept">قبول</string>
+    <string name="fail_accept">رفض</string>
+    <string name="fail_sigout_msg">لا يمكنك الخروج الان , ربما مشكلة في النت</string>
+    <string name="fail_cx_msg">الانترنت غير مستقرة</string>
+    <string name="check_first">تحقق من النت اولا</string>
+    <string name="fail_ccx_msg">فشل النت في جلب كل النصائح</string>
+    <string name="error_cx_msg">خطا في النت</string>
+    <string name="fail_cx_recetcosilt_msg">فشل النت في جلب كل الاستشارات </string>
+    <string name="gallery_pic_msg">الرجاء اخيار صورة من المعرض</string>
+    <string name="load_to_upload">...جاري التحميل</string>
+    <string name="fail_upload_msfg">فشل في اتحميل الصورة</string>
+    <string name="sucess_update">نجاح التحميل</string>
+    <string name="fail_upload">فشل في التحديث</string>
+    <string name="ad_first_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="ad_secod_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="prepare_face_msg">الرجاء الانتباه الي الكميرا</string>
+    <string name="get_report">الدخول مباشرة</string>
+    <string name="use_accout_msg">تحتاج الي استعمال حسابك</string>
+    <string name="get_ack">الرجوع</string>
+    <string name="fail_avail_msg">الطبيب غير متاح الان</string>
+    <string name="cosult_msg">استشر الان</string>
+    <string name="dr_cx_msg">الطبيب في اتصال الان</string>
+    <string name="connect_now_msg">الطبيب في استشارة الان جرب مرة اخري</string>
+    <string name="you_add_already_msg">لقد اظفت هذه النصيحة فعلا</string>
+    <string name="add_to_fav_msg">تم الاضفة الي المفضلة</string>
+    <string name="somethig_wor_msg">خطاء في عملية الاضافة</string>
+    <string name="read_more_msg">...اقراء المزيد</string>
+    <string name="should_logi">عليك الدخول بحسابك</string>
+    <string name="pass_fail_msg">كلمة السر غير مطابقة</string>
+    <string name="sig_up_msg">...جاري التسجيل</string>
+    <string name="wet_wor_msg">خطاء ما</string>
+    <string name="co_msg">الرجاء ادخال هذا الحقل ايضا</string>
+    <string name="pass_eter_msfg">الرجاء ادخال كلمة السر</string>
+    <string name="enter_email_msg">الرجاء ادخال EMAIL</string>
+    <string name="enter_fullame_msg">الرجاء ادخال الاسم الكامل</string>
+    <string name="check_email_verify">تحقق من حسابك في EMAIL لتنشيطه</string>
+    <string name="faild_email">هذا EMAIL غير موجود</string>
+    <string name="emotio_msg"> حالتك النفسية اليوم</string>
+    <string name="report_cacel_msg">الغاء التقرير</string>
+    <string name="repore_saved">حفظ التقرير</string>
+    <string name="you_do_have_complet_report">معلومات تقريرك غير كاملة</string>
+    <string name="dey_acess_camera">منع سمحية استعمال الكميرا</string>
+
+    <string name="main_doctor_label">الرائيسية</string>
+    <string name="main_user_label">الرائيسية</string>
+    <string name="login_label">الدخول للحساب</string>
+    <string name="create_user_label">تسجيل حساب</string>
+    <string name="real_emotio_label">تقرير حالتك النفسيه</string>
+    <string name="history_report_label">تقاريرك</string>
+    <string name="doctor_profile_label">حساب الطبيب</string>
+    <string name="profile_label">الحساب</string>
+    <string name="cosult_room_label">غرفة الاستشارة</string>
+    <string name="fav_label">المفضلة</string>
+    <string name="psyho_tip_label">نصائح نفسية</string>
+    <string name="history_report_details_label">تفاصيل تقاريرك</string>
+
+    <string name="login_tv"> تسجيل الدخول </string>
+        
+    <string name="email_hit"> البريد الإلكتروني </string>
+        
+    <string name="password_hit"> كلمة المرور </string>
+        
+    <string name="login_view"> تسجيل الدخول </string>
+        
+    <string name="create_new_account_tv"> إنشاء حساب جديد؟ </string>
+        
+    <string name="login_as_doctor_view"> تسجيل الدخول باسم الطبيب </string>
+    <string name="skip">تجاهل</string>
+    <string name="doctors">أطباء</string>
+    <string name="psycho_tips">نصائح نفسية</string>
+    <string name="consults">استشارات</string>
+
+    <string name="your_emotion">حالتك الان ?</string>
+    <string name="scan">ابدا</string>
+    <string name="accept_view">قبول</string>
+    <string name="cancel">الغاء</string>
+
+
+    <string name="default_emotio"> افتراضي </string>
+        
+    <string name="emotio_type"> الحالات النفسية </string>
+        
+    <string name="anger_type"> الغضب </string>
+        
+    <string name="fear_type"> الخوف </string>
+        
+    <string name="joy_type"> الفرح </string>
+        
+    <string name="sadanger_tyoe"> الحزن </string>
+        
+    <string name="surprise_type"> متفاجئ </string>
+        
+    <string name="tip_tv"> نصيحة </string>
+        
+    <string name="default_tip"> تلميح افتراضي </string>
+        
+    <string name="doctors_suggestion"> اقتراح الأطباء </string>
+        
+    <string name="save_report"> حفظ </string>
+        
+    <string name="cancel_report"> إلغاء </string>
+
+    <string name="add_tips"> إضافة نصيحة جديدة </string>
+        
+    <string name="logout"> تسجيل الخروج </string>
+        
+    <string name="search"> بحث </string>
+        
+    <string name="fav"> fav </string>
+        
+    <string name="analyse"> تحليل </string>
+        
+    <string name="request"> الطلبات </string>
+        
+    <string name="my_tips"> نصائحي </string>
+
+
+    <string name = "history_reports"> تقاريرك  </string>
+        <string name = "update_info"> معلومات التحديث </string>
+        <string name = "home"> الصفحة الرئيسية </string>
+        <string name = "please_update_your_information"> الرجاء تحديث معلوماتك </string>
+        <string name = "full_name"> الاسم الكامل </string>
+        <string name = "phone_hit"> الهاتف </string>
+        <string name = "city_hit"> المدينة </string>
+        <string name = "language_hit"> اللغة </string>
+        <string name = "speciality_hit"> التخصص </string>
+        <string name = "update_now_hit"> حدث الآن </string>
+        <string name = "cancel_hit"> إلغاء </string>
+        <string name = "add_tip"> أضف  </string>
+        <string name = "tip_title_hit"> عنوان </string>
+        <string name = "tip_content_hit"> محتوى  </string>
+        <string name = "add_now_hit"> أضف الآن </string>
+        <string name = "cancel_ht"> إلغاء </string>
+        <string name = "offline_online"> غير متاح/ متاح </string>
+        <string name = "offline"> بلا اتصال </string>
+        <string name = "online"> عبر الإنترنت </string>
+        <string name = "update_dr_view"> التحديث </string>
+        <string name = "home_dr"> الصفحة الرئيسية </string>
+
+    <string name = "start"> ابدأ </string>
+         <string name = "finish"> إنهاء </string>
+         <string name = "personal_info"> المعلومات الشخصية </string>
+         <string name = "create_account"> إنشاء حساب </string>
+         <string name = "confirm_password"> تأكيد كلمة المرور </string>
+         <string name = "sign_up"> قم بالتسجيل </string>
+         <string name = "already_have_account"> لديك حساب بالفعل </string>
+    <string name = "verify_with_email"> التحقق من بريدك الإلكتروني </string>
+    <string name="wait_to_consult">الرجاء الانتظار قليلا...</string>
+
+
+    <array name="pick">
+             <item>اختر من الكاميرا</item>
+             <item>اختر من المعرض</item>
+             <item>إلغاء</item>
+    </array>
+
+
+</resources>

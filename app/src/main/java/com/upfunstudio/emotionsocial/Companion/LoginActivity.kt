@@ -1,6 +1,8 @@
 package com.upfunstudio.emotionsocial.Companion
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -13,12 +15,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.upfunstudio.emotionsocial.Dr.MainDoctors
 import com.upfunstudio.emotionsocial.R
+import com.upfunstudio.emotionsocial.User.MainActivity
 import com.upfunstudio.emotionsocial.User.RegisterActivity
-import com.upfunstudio.emotionsocial.User.WindowAnalyseOrCalling
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
 import kotlin.collections.HashMap
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -27,10 +30,10 @@ class LoginActivity : AppCompatActivity() {
     private var loading: SpotsDialog? = null
     private var mFireStore: FirebaseFirestore? = null
 
+
     companion object {
         private const val RC_SIGN_IN = 1
         private const val emailRegularExpression = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
-
     }
 
 
@@ -40,12 +43,51 @@ class LoginActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         mFireStore = FirebaseFirestore.getInstance()
 
+        infoDialog()
+
+
+    }
+    private fun infoDialog(){
+        // show info dialog to decide if you want to create account or use app without
+        val builder = AlertDialog.Builder(this)
+                .setTitle(getString(R.string.Info_text))
+                .setMessage(getString(R.string.details_Info_text))
+                .setNegativeButton(getString(R.string.start_text), { dialog, which ->
+
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                    saveUser()
+                })
+                .setPositiveButton(getString(R.string.use_accout_text), { dialog, which ->
+                    dialog.dismiss()
+
+
+                })
+        try{
+            val fromRegister=intent.extras.getInt("fromRegister",0)
+            if(fromRegister!=1){
+                builder.show()
+            }
+        }catch (ex:Exception){}
+
+
+    }
+
+    // save user
+    private fun saveUser() {
+        // use ay umer to save user
+        SharedClass(this).saveData(12)
 
     }
 
     fun loginEventLogin(view: View) {
 
-        loginAccount()
+        try {
+            loginAccount()
+        } catch (ex: Exception) {
+            Toast.makeText(this, getString(R.string.update_wor_text),
+                    Toast.LENGTH_SHORT).show()
+        }
 
 
     }
@@ -53,93 +95,91 @@ class LoginActivity : AppCompatActivity() {
     fun loginDoctorEvent(view: View) {
 
 
-        // simple code to make number auth from google to include all country +216 ( tunis)
-        val providers = Arrays.asList(
-                AuthUI.IdpConfig.Builder(AuthUI
-                        .PHONE_VERIFICATION_PROVIDER)
-                        .build())
+        try {
+            // simple code to make number auth from google to include all country +216(tunis)
+            val providers = Arrays.asList(
+                    AuthUI.IdpConfig.Builder(AuthUI
+                            .PHONE_VERIFICATION_PROVIDER)
+                            .build())
 
-        startActivityForResult(
-                AuthUI.getInstance()
-                        .createSignInIntentBuilder()
-                        .setAvailableProviders(providers)
-                        .build(),
-                RC_SIGN_IN)
+            // assign auth only when the dr register the info
 
+            startActivityForResult(
+                    AuthUI.getInstance()
+                            .createSignInIntentBuilder()
+                            .setAvailableProviders(providers)
+                            .build(),
+                    RC_SIGN_IN)
+
+        } catch (ex: Exception) {
+            Toast.makeText(this,  getString(R.string.update_wor_text), Toast.LENGTH_SHORT).show()
+
+        }
 
     }
 
     // return with result to verify the phone number exist in database or not to allow to enter as a doctor in the system
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
 
 
+
+
         try {
-
-            // get the id and phone entered from user
-            val uid = mAuth!!.currentUser!!.uid
-            val phoneEntered = IdpResponse.fromResultIntent(data)!!.phoneNumber
-
             if (requestCode == RC_SIGN_IN) {
+                val phoneEntered = IdpResponse.fromResultIntent(data)!!.phoneNumber
 
-                // just for showing loading dialogue for the waiting result
-                loading = SpotsDialog(this)
-                loading!!.setTitle("Loading to login...")
-                loading!!.setCanceledOnTouchOutside(false)
-                loading!!.show()
 
                 if (resultCode == Activity.RESULT_OK) {
 
-                    val query = mFireStore!!.collection("Verify")
+                    // get the phone entered from user
+                    // just for showing loading dialog to waiting result
+                    loading = SpotsDialog(this, R.style.loadingDrSign)
+                    loading!!.setCanceledOnTouchOutside(true)
+                    loading!!.show()
+
+                    // allow only the phone already entered
+                    mFireStore!!
+                            .collection("Verify")
                             .whereEqualTo("phone", phoneEntered)
                             .get()
-                    query.addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
+                            .addOnCompleteListener { task ->
 
-                            for (phones in task.result.documentChanges) {
-                                val phoneExit = phones.document.getString("phone")
 
-                                if (phoneEntered == phoneExit) {
-                                    // save doctor info
-                                    saveInDatabase(uid, phoneEntered!!)
+                                if (task.isSuccessful) {
 
+                                    // save the dr info
+                                    saveInDatabase(phoneEntered!!)
                                     loading!!.dismiss()
-
-                                    val intent = Intent(this,
-                                            MainDoctors::class.java)
-                                    intent.putExtra("doctorID", uid)
-                                    startActivity(intent)
 
 
                                 } else {
 
                                     mAuth!!.currentUser!!.delete()
                                     Toast.makeText(applicationContext,
-                                            "Your phone ${phoneEntered!!.length} does not exits , phone exists ${phoneExit.length}",
+                                            getString(R.string.meg_verify_phone),
                                             Toast.LENGTH_LONG).show()
                                     loading!!.hide()
 
                                 }
 
+
                             }
-
-                        }
-                    }
-
-
-                } else if (resultCode == Activity.RESULT_CANCELED) {
-                    Toast.makeText(this, "", Toast.LENGTH_LONG).show()
                 }
             }
+
         } catch (ex: Exception) {
+
         }
+
+
     }
 
-    private fun saveInDatabase(uid: String, phone: String) {
-
+    private fun saveInDatabase(phone: String) {
         val doctor = HashMap<String, Any>()
-        doctor["uid"] = uid
+        doctor["uid"] = mAuth!!.currentUser!!.uid
         doctor["username"] = "Username"
         doctor["city"] = "City"
         doctor["language"] = "Language"
@@ -149,34 +189,73 @@ class LoginActivity : AppCompatActivity() {
         doctor["specialityText"] = "Speciality"
         doctor["state"] = true
         doctor["request"] = false
-        doctor["response"] = false
+        doctor["accept"] = false
+        doctor["connectNow"] = false
+
+        // we can add init info just in the first entering
+        /*
+         add check value to notice the dr to
+         update his profile if he entered at the first time
+          */
 
 
-        try {
-            // avoid change data every entered if the info already exist in fireStore
-            if (!mFireStore!!.collection("Doctors").document(uid).get().result.exists()) {
-                mFireStore!!.collection("Doctors")
-                        .document(uid)
-                        .set(doctor as Map<String, Any>)
-                        .addOnCompleteListener {
 
-                            task ->
-                            if (task.isSuccessful) {
-                                Toast.makeText(this,
-                                        "Welcome to your main page",
-                                        Toast.LENGTH_LONG).show()
+        mFireStore!!
+                .collection("Doctors")
+                .document(mAuth!!.currentUser!!.uid)
+                .get()
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        if (task.result.exists()) {
 
-                            } else {
-                                Toast.makeText(this,
-                                        "Your not allowed to be here",
-                                        Toast.LENGTH_LONG).show()
-                            }
+
+                            val intent = Intent(this, MainDoctors::class.java)
+
+                            startActivity(intent)
+
+                            Toast.makeText(this,
+                                    getString(R.string.welcome_ack_msg),
+                                    Toast.LENGTH_LONG).show()
+                        } else {
+
+                            mFireStore!!.collection("Doctors")
+                                    .document(mAuth!!.currentUser!!.uid)
+                                    .set(doctor as Map<String, String>)
+                                    .addOnCompleteListener { task ->
+
+                                        if (task.isSuccessful) {
+
+
+                                            Toast.makeText(this,
+                                                    getString(R.string.msg_icorge_to_update),
+                                                    Toast.LENGTH_LONG).show()
+
+
+                                            val intent = Intent(this, MainDoctors::class.java)
+
+                                            startActivity(intent)
+
+                                        } else {
+                                            Toast.makeText(this,
+                                                    getString(R.string.try_agai),
+                                                    Toast.LENGTH_LONG).show()
+
+                                        }
+
+                                    }
 
 
                         }
-            }
-        } catch (ex: Exception) {
-        }
+
+
+                    } else {
+                        Toast.makeText(applicationContext, getString(R.string.connection_down),
+                                Toast.LENGTH_LONG).show()
+                        loading!!.hide()
+                    }
+
+                }
+
     }
 
 
@@ -184,13 +263,15 @@ class LoginActivity : AppCompatActivity() {
         val email = editEmail.text.toString()
         val password = editPass.text.toString()
 
+
         if (!TextUtils.isEmpty(email) && email.matches(Regex(emailRegularExpression))) {
 
 
             if (!TextUtils.isEmpty(password)) {
 
+
                 loading = SpotsDialog(this)
-                loading!!.setTitle("Loading to login...")
+                loading!!.setTitle(getString(R.string.loadig_to_load))
                 loading!!.setCanceledOnTouchOutside(false)
                 loading!!.show()
 
@@ -203,31 +284,44 @@ class LoginActivity : AppCompatActivity() {
                     task ->
                     if (task.isSuccessful) {
 
-                        loading!!.dismiss()
-                        val fr = WindowAnalyseOrCalling()
-                        val bundle = Bundle()
-                        // to know the analyse dialoge from main or form login & register
-                        val placeActivity = "loginUser"
-                        bundle.putString("placeActivity", placeActivity)
+                        if (mAuth!!.currentUser!!.isEmailVerified) {
 
-                        fr.arguments = bundle
+                            loading!!.dismiss()
+                            val fr = WindowAnalyseOrCalling()
+                            val bundle = Bundle()
+                            // to know the analyse dialoge from main or form login & register
+                            val placeActivity = "loginUser"
+                            bundle.putString("placeActivity", placeActivity)
 
-                        val frman = fragmentManager
-                        fr.show(frman, "Show")
-                        // to invisible login layout after login
-                        loginLayout.visibility = View.GONE
+                            fr.arguments = bundle
+
+                            val frman = fragmentManager
+                            fr.show(frman, "Show")
+                            // to invisible login layout after login
+                            loginLayout.visibility = View.GONE
 
 
 
 
-                        editEmail.setText("")
-                        editPass.setText("")
+                            editEmail.setText("")
+                            editPass.setText("")
+
+
+                        } else {
+
+                            // asking him to verify his email
+                            Toast.makeText(applicationContext, getString(R.string.verify_email_msg),
+                                    Toast.LENGTH_LONG).show()
+                            loading!!.hide()
+
+                        }
+
 
                     } else {
 
                         // something wrong
                         Toast.makeText(this,
-                                "Something wrong!", Toast.LENGTH_SHORT).show()
+                                getString(R.string.somethig_wor), Toast.LENGTH_SHORT).show()
 
                         loading!!.hide()
 
@@ -237,13 +331,13 @@ class LoginActivity : AppCompatActivity() {
                 }
 
             } else {
-                editPass.error = "Please enter the password"
+                editPass.error = getString(R.string.msg_ente_the_password)
 
             }
 
 
         } else {
-            editEmail.error = "Please enter the email!"
+            editEmail.error = getString(R.string.please_enter_the_email)
 
 
         }
@@ -262,6 +356,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+
 
     }
 

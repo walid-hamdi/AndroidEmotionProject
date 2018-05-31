@@ -88,6 +88,14 @@ class StartActivity : AppCompatActivity() {
 
 
         }
+        // check ormal user
+        if (SharedClass(this).loadData() != 0) {
+
+            intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
 
 
     }

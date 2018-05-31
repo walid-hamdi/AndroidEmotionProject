@@ -5,20 +5,20 @@
     <item
         android:id="@+id/requests"
         android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="Requests" />
+        android:title="@string/request" />
 
 
 
     <item
         android:id="@+id/MydoctorTips"
         android:icon="@drawable/ic_layers_white_24dp"
-        android:title="My Tips" />
+        android:title="@string/my_tips" />
 
 
     <item
         android:id="@+id/RecentConsultDoctor"
         android:icon="@drawable/ic_consult_24dp"
-        android:title="Consults" />
+        android:title="@string/consults" />
 
 
 </menu>

@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -11,8 +13,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.upfunstudio.emotionsocial.Companion.TipContentActivity
 import com.upfunstudio.emotionsocial.R
-import kotlinx.android.synthetic.main.activity_fav.*
 import kotlinx.android.synthetic.main.all_tips.view.*
+import kotlinx.android.synthetic.main.fragment_recycleview.*
+import kotlinx.android.synthetic.main.fragment_recycleview.view.*
 import java.util.*
 
 class FavActivity : AppCompatActivity() {
@@ -23,13 +26,17 @@ class FavActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fav)
+        setContentView(R.layout.fragment_recycleview)
 
         list = ArrayList()
         customAdapter = AdapterRecycle(context = this, list = list!!)
-        recycleFav.layoutManager = LinearLayoutManager(this)
-        recycleFav.setHasFixedSize(true)
-        recycleFav.adapter = customAdapter
+        recycleview.layoutManager = LinearLayoutManager(this)
+        recycleview.setHasFixedSize(true)
+        recycleview.itemAnimator = DefaultItemAnimator()
+        recycleview.addItemDecoration(DividerItemDecoration(this,
+                DividerItemDecoration.VERTICAL))
+
+        recycleview.adapter = customAdapter
         sqlLiteFavorite = SqlLiteFavorite(this)
         appearData("%")
 
@@ -93,7 +100,6 @@ class FavActivity : AppCompatActivity() {
         customAdapter!!.notifyDataSetChanged()
 
 
-
     }
 
     // class for adapting
@@ -107,16 +113,9 @@ class FavActivity : AppCompatActivity() {
     inner class AdapterRecycle(val context: Context,
                                private val list: List<TipsForUsers>) :
             RecyclerView.Adapter<AdapterRecycle.CustomViewHolder>() {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
 
-
-        override fun getItemCount(): Int {
-
-            return list.size
-
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CustomViewHolder {
-            val layoutInf = LayoutInflater.from(parent?.context)
+            val layoutInf = LayoutInflater.from(parent.context)
             val view = layoutInf.inflate(R.layout.all_tips, parent, false)
 
             return CustomViewHolder(view)
@@ -124,19 +123,18 @@ class FavActivity : AppCompatActivity() {
 
         }
 
-        override fun onBindViewHolder(holder: CustomViewHolder?, position: Int) {
-
+        override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
             val item = list[position]
 
 
             // full the title for all items for tip
-            holder!!.itemView.titleAlltips.text = item.titleTip
+            holder.itemView.titleAlltips.text = item.titleTip
             // full the title and show just first 20 letters
-            if (holder!!.itemView.titleAlltips.text.length > 20) {
+            if (holder.itemView.titleAlltips.text.length > 20) {
                 val split = item.contentTip.substring(0, 19)
-                holder!!.itemView.titleAlltips.text = split.plus("...")
+                holder.itemView.titleAlltips.text = split.plus("...")
             } else {
-                holder!!.itemView.titleAlltips.text = item.contentTip
+                holder.itemView.titleAlltips.text = item.contentTip
             }
             // full the publisher doctor for this tip
             holder.itemView.publishedBy.text = "By ".plus(item.username)
@@ -145,7 +143,7 @@ class FavActivity : AppCompatActivity() {
 
 
             // add to fav list
-            holder!!.itemView.addFavButton.visibility = View.GONE
+            holder.itemView.addFavButton.visibility = View.GONE
 
             // pass the info to details psycho tip content
             holder.itemView.layoutAllTips.setOnClickListener {
@@ -160,6 +158,13 @@ class FavActivity : AppCompatActivity() {
 
             }
 
+
+        }
+
+
+        override fun getItemCount(): Int {
+
+            return list.size
 
         }
 

@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="102dp"
-    android:layout_margin="1dp"
+    android:layout_height="wrap_content"
+    android:elevation="3dp"
     card:cardCornerRadius="3dp"
-    card:cardElevation="2dp">
+    card:cardElevation="4dp">
 
     <RelativeLayout
+        android:layout_margin="2dp"
         android:id="@+id/layoutAllTips"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/cardview_light_background">
+
+
+        <TextView
+            android:id="@+id/titleAlltips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:textColor="@color/titleColor"
+            android:layout_weight="0"
+            android:text="Psycho"
+            android:textSize="23dp"
+            />
+
 
         <ImageView
             android:id="@+id/decorate"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:background="@drawable/psycho" />
-
-
-        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_below="@id/titleAlltips"
+            android:layout_margin="4dp"
+            android:background="@drawable/tip_pic"
+            android:contentDescription="TODO"
+            android:scaleType="center"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/publishedBy"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_toRightOf="@+id/decorate"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/titleAlltips"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0"
-                android:text="Psycho"
-                android:textColor="@color/blue"
-                android:textSize="20dp"
-                android:textStyle="italic|bold" />
-
-            <TextView
-                android:id="@+id/dateAllTips"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/titleAlltips"
-                android:layout_margin="5dp"
-                android:text="15/17/20" />
+            android:layout_below="@id/decorate"
+            android:layout_margin="4dp"
+            android:text="Pulished y"
+            android:textColor="@color/descriptionTitleColor"
+            android:textSize="20dp" />
 
 
-            <TextView
-                android:id="@+id/publishedBy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/dateAllTips"
-                android:layout_marginBottom="7dp"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="7dp"
-                android:text=""
-                android:textColor="@color/blueTrans"
-                android:textSize="16dp" />
+        <TextView
+            android:id="@+id/dateAllTips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/publishedBy"
+            android:layout_margin="4dp"
+            android:text="15/17/20"
+            android:textSize="17dp" />
 
-
-        </LinearLayout>
 
         <ImageButton
             android:id="@+id/addFavButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+            android:layout_below="@id/decorate"
             android:layout_margin="16dp"
-            android:background="@drawable/ic_favorite_red_24dp" />
+            android:background="@drawable/ic_favorite_red_24dp"
+            android:contentDescription="TODO" />
 
     </RelativeLayout>
 

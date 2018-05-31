@@ -11,22 +11,16 @@ import kotlinx.android.synthetic.main.activity_start.view.*
 import kotlinx.android.synthetic.main.slider_intro.view.*
 
 
-class AdapterIntro : PagerAdapter {
+class AdapterIntro(contexts: Context) : PagerAdapter() {
 
 
-    var context: Context
+    var context: Context = contexts
     var layout: LayoutInflater? = null
-
-    constructor(contexts: Context) {
-
-        this.context = contexts
-
-
-    }
 
     private val images = listOf(R.drawable.icon_emotions,
             R.drawable.icon_dr_online)
-    private val titles = listOf("Your Emotion?", "Consult Doctor Now!")
+    private val titles = listOf(context.getString(R.string.your_emotion_text_intro),
+            context.getString(R.string.cosult_dr_text_intro))
 
 
     override fun getCount(): Int {
@@ -51,7 +45,7 @@ class AdapterIntro : PagerAdapter {
 
 
 
-        container!!.addView(view)
+        container.addView(view)
         return view
 
 
@@ -59,7 +53,7 @@ class AdapterIntro : PagerAdapter {
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
 
-        container!!.removeView(`object` as RelativeLayout)
+        container.removeView(`object` as RelativeLayout)
 
     }
 }

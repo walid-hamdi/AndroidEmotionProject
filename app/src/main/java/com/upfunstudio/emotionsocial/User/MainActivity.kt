@@ -1,14 +1,12 @@
 package com.upfunstudio.emotionsocial.User
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.upfunstudio.emotionsocial.Companion.LoginActivity
-import com.upfunstudio.emotionsocial.Companion.RecentConsultsFragment
+import com.upfunstudio.emotionsocial.Companion.SharedClass
 import com.upfunstudio.emotionsocial.Dr.MainDoctors
 import com.upfunstudio.emotionsocial.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -25,15 +23,44 @@ class MainActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         // default fragment appear
-        setFragment(DoctorListFragment())
+
+        if (mAuth!!.currentUser != null)
+            setFragment(DoctorListFragment())
 
 
-        // if the user does not have a phone that mean this user is a doctor
-        if (!mAuth!!.currentUser!!.phoneNumber.isNullOrEmpty()) {
 
-            val intentDoctorAhead = Intent(this, MainDoctors::class.java)
-            intentDoctorAhead.putExtra("userID", mAuth!!.currentUser!!.uid)
-            startActivity(intentDoctorAhead)
+        // if the user have a phone that mean this user is a doctor
+
+        try {
+
+            // dr logi
+            if (!mAuth!!.currentUser!!.phoneNumber!!.isEmpty()) {
+
+                // that mean this is a dr
+                val intentDoctorAhead = Intent(this,
+                        MainDoctors::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK and Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                startActivity(intentDoctorAhead)
+                finish()
+
+                // user logi
+            } else {
+                if (!mAuth!!.currentUser!!.isEmailVerified) {
+                    if (SharedClass(this).loadData() == 0) {
+
+                        val intentDoctorAhead = Intent(this,
+                                LoginActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK and Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        startActivity(intentDoctorAhead)
+                        finish()
+
+                    }
+                }
+
+            }
+
+
+        } catch (ex: Exception) {
         }
 
         // adapter all fragment
@@ -50,6 +77,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.doctorList -> {
 
+                    // dr list
                     setFragment(DoctorListFragment())
 
                 }
@@ -60,7 +88,22 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.RecentConsult -> {
-                    setFragment(RecentConsultsFragment())
+                    // to appear dialog the kind of user use the app without account
+                    if (mAuth!!.currentUser != null) {
+                        setFragment(RecentConsultsWithDrFragment())
+
+                    } else {
+                        AlertDialog.Builder(this)
+                                .setMessage(getString(R.string.should_logi))
+                                .setPositiveButton(getString(R.string.skip), { dialog, which ->
+                                    setFragment(DoctorTipsFragment())
+                                    dialog.dismiss()
+
+
+                                }).show()
+
+
+                    }
 
 
                 }
@@ -78,76 +121,6 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.frameLayout, fragment)
                 .addToBackStack(null)
                 .commit()
-
-
-    }
-
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
-        menuInflater.inflate(R.menu.main_menu, menu)
-        // todo : search
-
-
-        return true
-    }
-
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item!!.itemId) {
-            R.id.profileMenu -> {
-
-                val intent = Intent(this, SettingsUserActivity::class.java)
-                startActivity(intent)
-
-
-            }
-            R.id.fav -> {
-
-                startActivity(Intent(this, FavActivity::class.java))
-
-            }
-            R.id.AnalyseMenu -> {
-
-
-                val fr = WindowAnalyseOrCalling()
-                val bundle = Bundle()
-                // to know the analyse dialogue from main or form login & register
-                val placeActivity = "MainActivity"
-                bundle.putString("placeActivity", placeActivity)
-                fr.arguments = bundle
-                val frman = fragmentManager
-                fr.show(frman, "Show")
-
-
-            }
-            R.id.logoutMenu -> {
-
-                mAuth!!.signOut()
-                checkUser()
-
-
-            }
-
-            else -> {
-                return super.onOptionsItemSelected(item)
-
-            }
-
-
-        }
-
-        return true
-    }
-
-
-    private fun checkUser() {
-
-        // check for user
-        if (mAuth!!.currentUser == null) {
-            val intent = Intent(applicationContext, LoginActivity::class.java)
-            startActivity(intent)
-        }
 
 
     }

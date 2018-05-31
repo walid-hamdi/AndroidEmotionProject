@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="&#8226;"
-                android:textColor="@color/blue"
+                android:textColor="@color/titleColor"
                 android:textSize="60dp" />
 
             <TextView
@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="&#8226;"
-                android:textColor="@color/blueTrans"
+                android:textColor="@color/descriptionTitleColor"
                 android:textSize="60dp" />
 
 

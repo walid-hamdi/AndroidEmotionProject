@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name"> Emotion Social</string>
+        
+    <string name="your_emotion_text_intro"> Votre émotion? </string>
+        
+    <string name="cosult_dr_text_intro"> Consulter le docteur maintenant!</string>
+        
+    <string name="Info_text"> Info</string>
+        
+    <string name="details_Info_text"> Si vous souhaitez consulter un médecin, vous devez vous enregistrer, sinon vous pouvez commencer à faire défiler les conseils, tester Emotion! </string>
+        
+    <string name="start_text"> COMMENCER </string>
+        
+    <string name="use_accout_text"> Utiliser le compte </string>
+        
+    <string name="update_wor_text"> Vous devez mettre à jour le service </string>
+        
+    <string name="meg_verify_phone"> Votre téléphone n\'existe pas </string>
+        
+    <string name="welcome_ack_msg"> Bienvenue dans votre maison principale:) </string>
+        
+    <string name="msg_icorge_to_update"> Bienvenue Veuillez mettre à jour vos informations pour utiliser toutes les fonctionnalités:) </string>
+        
+    <string name="try_agai"> Réessayez:) </string>
+        
+    <string name="connection_down"> Connexion en panne! </string>
+        
+    <string name="loadig_to_load"> Chargement pour se connecter ... </string>
+        
+    <string name="verify_email_msg"> Veuillez vérifier votre adresse e-mail et réessayer! </string>
+        
+    <string name="somethig_wor"> Quelque chose ne va pas! </string>
+        
+    <string name="msg_ente_the_password"> Veuillez entrer le mot de passe </string>
+        
+    <string name="please_enter_the_email"> Veuillez entrer l\'email! </string>
+        
+    <string name="call_now"> Appelez maintenant ... </string>
+        
+    <string name="want_to_call"> Quelqu\'un veut t\'appeler ... </string>
+        
+    <string name="please_try_to_call_later"> Merci d\'essayer d\'appeler un autre moment! </string>
+        
+    <string name="tip_msg"> Titre de l\'astuce </string>
+        
+    <string name="dsc_msg"> Description de l\'astuce </string>
+        
+    <string name="update_first"> Vous devez d\'abord mettre à jour vos informations </string>
+        
+    <string name="tip_exit_msg"> N\'existe pas de conseil! </string>
+        
+    <string name="add"> Ajouter ... </string>
+        
+    <string name="add_tip_sucess"> Vous avez ajouté un conseil! Merci! </string>
+        
+    <string name="fail_to_add_tip"> Échec de l\'ajout! </string>
+        
+    <string name="please_refresh"> Veuillez actualiser !! </string>
+        
+    <string name="accept"> Accepté </string>
+        
+    <string name="fail_accept"> Non accepté </string>
+        
+    <string name="fail_sigout_msg"> Vous ne pouvez pas vous déconnecter maintenant! </string>
+        
+    <string name="fail_cx_msg"> Connexion instable maintenant! </string>
+        
+    <string name="check_first"> Vérifiez d\'abord la connexion! </string>
+        
+    <string name="fail_ccx_msg"> Votre connexion vers le bas pour voir vos astuces </string>
+        
+    <string name="error_cx_msg"> Erreur de connexion! </string>
+        
+    <string name="fail_cx_recetcosilt_msg"> Votre connexion pour voir vos récentes consultations </string>
+        
+    <string name="gallery_pic_msg"> Veuillez choisir une image de la galerie </string>
+        
+    <string name="load_to_upload"> Chargement pour upload ... </string>
+        
+    <string name="fail_upload_msfg"> Impossible de télécharger l\'image </string>
+        
+    <string name="sucess_update"> Mise à jour réussie </string>
+        
+    <string name="fail_upload"> La mise à jour a échoué! quelque chose est allé en guerre! </string>
+        
+    <string name="ad_first_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="ad_secod_id">ca-app-pub-3940256099942544/1033173712</string>
+        
+    <string name="prepare_face_msg"> Préparez votre visage d\'abord </string>
+        
+    <string name="get_report"> GET REPORT </string>
+        
+    <string name="check_cx_first"> Vérifiez d\'abord la connexion!</string>
+        
+    <string name="use_accout_msg"> Vous devez utiliser votre compte! </string>
+        
+        
+    <string name="get_ack"> Récupère </string>
+        
+    <string name="check_ccx_first"> Vérifiez d\'abord le cx! </string>
+        
+    <string name="fail_avail_msg"> NON DISPONIBLE MAINTENANT </string>
+        
+    <string name="dr_cx_msg"> DR CONNECTER MAINTENANT </string>
+        
+    <string name="connect_now_msg"> Docteur connect essayez maintenant une autre fois! </string>
+        
+    <string name="cosult_msg"> CONSULTEZ MAINTENANT </string>
+        
+    <string name="you_add_already_msg"> Vous avez déjà ajouté cet élément! </string>
+        
+    <string name="add_to_fav_msg"> Vous l\'avez ajouté à la liste des favoris </string>
+        
+    <string name="somethig_wor_msg"> Quelque chose s\'est mal passé pour l'ajouter! </string>
+        
+    <string name="read_more_msg"> ... En savoir plus </string>
+        
+    <string name="should_logi"> Vous devez vous connecter! </string>
+        
+    <string name="pass_fail_msg"> Mot de passe incorrect comme </string>
+        
+    <string name="sig_up_msg"> Chargement en cours ... </string>
+        
+    <string name="wet_wor_msg"> Quelque chose ne va pas! </string>
+        
+    <string name="co_msg"> Merci d\'entrer aussi ce champ !! </string>
+        
+    <string name="pass_eter_msfg"> Veuillez entrer le mot de passe! </string>
+        
+    <string name="enter_email_msg"> Veuillez entrer l\'email! </string>
+        
+    <string name="enter_fullame_msg"> Veuillez entrer le nom complet </string>
+    <string name="check_email_verify"> Consultez votre email pour vérifier! </string>
+    <string name="faild_email"> Echec de l\'e-mail, essayez à nouveau! Votre email est peut-être inexistant!</string>
+        
+    <string name="emotio_msg"> Votre émotion aujourd\'hui est </string>
+        
+    <string name="report_cacel_msg"> Rapport annulé! </string>
+        
+    <string name="repore_saved"> Rapport enregistré! </string>
+        
+    <string name="some_we_msg"> Quelque chose est allé en guerre </string>
+        
+    <string name="you_do_have_complet_report"> Vous n\'avez pas de rapport complet </string>
+        
+        
+    <string name="sucess_upload"> Mise à jour réussie </string>
+        
+    <string name="dey_acess_camera"> Refuser l\'accès à la caméra! </string>
+
+    <string name="doctor_profile_label">Profil du médecin </string>
+
+
+    <string name="main_doctor_label">Médecin principal</string>
+    <string name="main_user_label">Utilisateur principal</string>
+
+        
+    <string name="principal_doctor_label"> Docteur principal </string>
+        
+    <string name="nom_utilisateur_principal"> Utilisateur principal </string>
+        
+    <string name="login_label"> Connexion </string>
+        
+    <string name="create_user_label"> Créer un compte utilisateur </string>
+        
+    <string name="real_emotio_label"> Rapport d\'émotion réel </string>
+        
+    <string name="profile_label"> Profil </string>
+        
+    <string name="history_report_label"> Rapport d\'historique</string>
+        
+    <string name="label_profil_profile"> Profil du médecin </string>
+        
+    <string name="cosult_room_label"> Salle de consultation </string>
+        
+    <string name="fav_label"> Favori </string>
+        
+    <string name="psyho_tip_label"> Astuce Psycho </string>
+        
+    <string name="history_report_details_label"> Détails du rapport d\'historique </string>
+
+
+    <string name="login_tv"> Connexion </string>
+        
+    <string name="email_hit"> Email </string>
+        
+    <string name="password_hit"> Mot de passe </string>
+        
+    <string name="login_view"> Connexion </string>
+        
+    <string name="create_new_account_tv"> Créer un nouveau compte? </string>
+        
+    <string name="login_as_doctor_view"> Connectez-vous en tant que Docteur </string>
+    <string name="skip">Sauter</string>
+    <string name="doctors"> Médecins </string>
+    <string name="psycho_tips">Conseils psychologiques</string>
+    <string name="consults">consulté</string>
+
+    <string name="your_emotion">Votre émotion?</string>
+    <string name="scan">Analyser</string>
+    <string name="accept_view">Accepter</string>
+    <string name="cancel">Annuler</string>
+
+    <string name="default_emotio"> Par défaut </string>
+        
+    <string name="emotio_type"> Emotions </string>
+        
+    <string name="anger_type"> colère </string>
+        
+    <string name="fear_type"> peur </string>
+        
+    <string name="joy_type"> joie </string>
+        
+    <string name="sadanger_tyoe"> tristesse </string>
+        
+    <string name="surprise_type"> surprise </string>
+        
+    <string name="tip_tv"> Astuce </string>
+        
+    <string name="default_tip"> Astuce par défaut </string>
+        
+    <string name="doctors_suggestion"> Suggestion des médecins </string>
+        
+    <string name="save_report"> Enregistrer </string>
+        
+    <string name="cancel_report"> Annuler </string>
+
+    <string name="add_tips"> Ajouter des astuces </string>
+        
+    <string name="logout"> Déconnexion </string>
+        
+    <string name="search"> Recherche </string>
+        
+    <string name="fav"> fav </string>
+        
+    <string name="analyser"> Analyser </string>
+        
+    <string name="request"> Requêtes </string>
+        
+    <string name="mes_tips"> Mes conseils </string>
+
+    <string name="history_reports"> Rapports d\'historique </string>
+        
+    <string name="update_info"> Informations de mise à jour </string>
+        
+    <string name="home"> Accueil </string>
+        
+    <string name="please_update_your_information"> Veuillez mettre à jour vos informations </string>
+        
+    <string name="full_name"> Nom complet </string>
+        
+    <string name="phone_hit"> Téléphone </string>
+        
+    <string name="city_hit"> Ville </string>
+        
+    <string name="language_hit"> Langue </string>
+        
+    <string name="speciality_hit"> Spécialité </string>
+        
+    <string name="update_now_hit"> Mettre à jour maintenant </string>
+        
+    <string name="cancel_hit"> Annuler </string>
+        
+    <string name="add_tip"> Ajouter un conseil </string>
+        
+    <string name="tip_title_hit"> Titre de la bulle </string>
+        
+    <string name="tip_content_hit"> Contenu de l\'astuce </string>
+        
+    <string name="add_now_hit"> Ajouter maintenant </string>
+        
+    <string name="cancel_ht"> Annuler </string>
+        
+    <string name="offline_online"> Hors ligne / en ligne </string>
+        
+    <string name="offline"> Hors ligne </string>
+        
+    <string name="online"> En ligne </string>
+        
+    <string name="update_dr_view"> Mise à jour </string>
+        
+    <string name="home_dr"> Accueil </string>
+
+    <string name="start"> Démarrer </string>
+        
+    <string name="finish"> Terminer </string>
+        
+    <string name="personal_info"> Informations personnelles </string>
+        
+    <string name="create_account"> Créer un compte </string>
+        
+    <string name="confirm_password"> Confirmer le mot de passe </string>
+        
+    <string name="sign_up"> Inscrivez-vous </string>
+        
+    <string name="already_have_account"> Vous avez déjà un compte </string>
+    <string name = "verify_with_email"> Vérifiez avec votre adresse e-mail </string>
+    <string name="wait_to_consult">Attendez de consulter...</string>
+
+
+    <array name="pick">
+                   
+        <item>Choisissez parmi la caméra</item>
+        <item>Choisissez dans la galerie</item>
+        <item>Annuler</item>
+    </array>
+
+
+</resources>

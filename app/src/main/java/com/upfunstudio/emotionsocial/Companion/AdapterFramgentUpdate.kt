@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.upfunstudio.emotionsocial.Dr.SetttingsDoctorActivity
 import com.upfunstudio.emotionsocial.R
 import com.upfunstudio.emotionsocial.User.SettingsUserActivity
@@ -13,13 +15,21 @@ import kotlinx.android.synthetic.main.update_dialoge.view.*
 /**
  * Created by walido on 2/17/2018.
  */
-class AdapterFramgentUpdate : DialogFragment() {
+open class AdapterFramgentUpdate : DialogFragment() {
+
+
+    private var mFireStore: FirebaseFirestore? = null
+    private var mAuth: FirebaseAuth? = null
 
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
+        mFireStore = FirebaseFirestore.getInstance()
+        mAuth = FirebaseAuth.getInstance()
+
         val view = inflater!!.inflate(R.layout.update_dialoge,
                 container, false)
+
 
         try {
             val update = this.arguments.getString("update", "")
@@ -27,7 +37,6 @@ class AdapterFramgentUpdate : DialogFragment() {
 
                 view.changePhone.visibility = View.GONE
                 // that mean appear update for doctor
-
 
 
                 view.updateNowButton.setOnClickListener {
@@ -39,8 +48,8 @@ class AdapterFramgentUpdate : DialogFragment() {
                             view.chageLanguage.text.toString(),
                             view.chageSpec.text.toString())
 
-                    dismiss()
 
+                    this.dismiss()
                 }
                 view.CancelUpdate.setOnClickListener {
                     dismiss()
@@ -78,7 +87,6 @@ class AdapterFramgentUpdate : DialogFragment() {
 
 
             }
-
 
         } catch (ex: Exception) {
         }

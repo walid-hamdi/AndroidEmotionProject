@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.upfunstudio.emotionsocial">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -8,15 +9,18 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:icon="@drawable/ic_voice_chat_black_24dp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_voice_chat_black_24dp"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:supportsRtl="false"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup,android:label">
         <activity
             android:name=".Companion.StartActivity"
             android:theme="@style/AppThemeNoActionBar">
@@ -28,52 +32,60 @@
         </activity>
         <activity
             android:name=".Dr.MainDoctors"
-            android:label="Main" />
+            android:label="@string/main_doctor_label" />
         <activity
             android:name=".User.MainActivity"
-            android:label="Main" />
+            android:label="@string/main_user_label" />
         <activity
             android:name=".Companion.LoginActivity"
-            android:label="Login" />
+            android:label="@string/login_label" />
         <activity
             android:name=".User.RegisterActivity"
-            android:label="Create patient account" />
+            android:label="@string/create_user_label" />
         <activity
             android:name=".User.ReportDetailsActivity"
-            android:label="Real emotion report" />
+            android:label="@string/real_emotio_label" />
         <activity
             android:name=".User.SettingsUserActivity"
-            android:label="Profile"
+            android:label="@string/profile_label"
             android:theme="@style/AppThemeNoActionBar" />
         <activity
             android:name=".User.ListHistoryReportActivity"
-            android:label="History Report"
+            android:label="@string/history_report_label"
             android:parentActivityName=".User.SettingsUserActivity" />
         <activity
             android:name=".User.DoctorProfileAppearForUserActivity"
-            android:label="Doctor Profile"
+            android:label="@string/doctor_profile_label"
             android:parentActivityName=".User.MainActivity" />
         <activity
             android:name=".User.CameraAnalyse"
             android:theme="@style/AppThemeNoActionBar" />
         <activity
             android:name=".Dr.SetttingsDoctorActivity"
-            android:label="Profile"
+            android:label="@string/profile_label"
             android:theme="@style/AppThemeNoActionBar" />
         <activity
             android:name=".Companion.ConsultRoomActivity"
-            android:label="Consulting room" />
-        <activity
-            android:name=".Dr.ResponseDoctorActivity"
-            android:theme="@style/AppThemeNoActionBar" />
+            android:label="@string/cosult_room_label" />
         <activity
             android:name=".User.FavActivity"
-            android:label="Favorite"
+            android:label="@string/fav_label"
             android:parentActivityName=".User.MainActivity" />
         <activity
             android:name=".Companion.TipContentActivity"
-            android:label="Psycho Tip"
-            android:parentActivityName=".Dr.MainDoctors"></activity>
+            android:label="@string/psyho_tip_label"
+            android:parentActivityName=".Dr.MainDoctors" />
+        <activity
+            android:name=".User.HistoryReportDetails"
+            android:label="@string/history_report_details_label"
+            android:parentActivityName=".User.ListHistoryReportActivity" />
+
+        <receiver android:name=".Dr.MainDoctors$NotificationReceiver">
+            <intent-filter>
+                <action android:name="ACCEPT" />
+                <action android:name="CANCEL" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

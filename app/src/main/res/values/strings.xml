@@ -1,7 +1,182 @@
 <resources>
-    <string name="app_name">Emotion Social</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Emotion Social</string>
+    <string name="your_emotion_text_intro">Your Emotion?</string>
+    <string name="cosult_dr_text_intro">Consult Doctor Now!</string>
+    <string name="Info_text">Info</string>
+    <string name="details_Info_text">If you want to consult doctor you should register, otherwise you can start Scrolling tips , test Emotion !</string>
+    <string name="start_text">GET STARTED</string>
+    <string name="use_accout_text">Use account</string>
+    <string name="update_wor_text">You need to update service</string>
+    <string name="meg_verify_phone">Your phone does not exists</string>
+    <string name="welcome_ack_msg">Welcome Back in your main home :)</string>
+    <string name="msg_icorge_to_update">Welcome Please update your information to use all features :)</string>
+    <string name="try_agai">Try again :)</string>
+    <string name="connection_down">Connection down!</string>
+    <string name="loadig_to_load">Loading to login...</string>
+    <string name="verify_email_msg">Please Verify you\'re Email and try again!</string>
+    <string name="somethig_wor">Something wrong!</string>
+    <string name="msg_ente_the_password">Please enter the password</string>
+    <string name="please_enter_the_email">Please enter the email!</string>
+    <string name="call_now">Calling now ...</string>
+    <string name="want_to_call">Someone want to call you ...</string>
+    <string name="please_try_to_call_later">Please try to call another time!</string>
+    <string name="tip_msg">Title of the tip</string>
+    <string name="dsc_msg">Description of the tip</string>
+    <string name="update_first">You need to update your information first</string>
+    <string name="tip_exit_msg">Doesn\'t exist any tip!</string>
+    <string name="add">Adding...</string>
+    <string name="add_tip_sucess">You Added Tip! Thank you!</string>
+    <string name="fail_to_add_tip">Failed Add!</string>
+    <string name="please_refresh">Please Refresh!!</string>
+    <string name="accept">Accepted</string>
+    <string name="fail_accept">Not Accepted</string>
+    <string name="fail_sigout_msg">You can\'t sign out right now!</string>
+    <string name="fail_cx_msg">Unstable connection right now!</string>
+    <string name="check_first">Check the connection first!</string>
+    <string name="fail_ccx_msg">Your connection down to see your Tips</string>
+    <string name="error_cx_msg">Error connection!</string>
+    <string name="fail_cx_recetcosilt_msg">Your connection down to see your recent Consults</string>
+    <string name="gallery_pic_msg">Please Pick Picture from gallery</string>
+    <string name="load_to_upload">Loading to upload...</string>
+    <string name="fail_upload_msfg">Failed upload image</string>
+    <string name="sucess_update">Updated successfully</string>
+    <string name="fail_upload">Updated failed! something went waring!</string>
+    <string name="ad_first_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="ad_secod_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="prepare_face_msg">Prepare your face first</string>
+    <string name="get_report">GET REPORT</string>
+    <string name="check_cx_first">Check the connection first!</string>
+    <string name="use_accout_msg">You need to use your account!</string>
+    <string name="get_ack">Get Back</string>
+    <string name="check_ccx_first">Check the cx first!</string>
+    <string name="fail_avail_msg">NOT AVAILABLE NOW</string>
+    <string name="dr_cx_msg">DR CONNECT NOW</string>
+    <string name="connect_now_msg">Doctor connect now try another time!</string>
+    <string name="cosult_msg">CONSULT NOW</string>
+    <string name="you_add_already_msg">You added this item already!</string>
+    <string name="add_to_fav_msg">You added it to Favorite List</string>
+    <string name="somethig_wor_msg">Something went wrong to add it!</string>
+    <string name="read_more_msg">... Read more</string>
+    <string name="should_logi">You should login!</string>
+    <string name="pass_fail_msg">Password not correct as the same</string>
+    <string name="sig_up_msg">Loading to Sign up...</string>
+    <string name="wet_wor_msg">Something wrong!</string>
+    <string name="co_msg">Please enter this field also!!</string>
+    <string name="pass_eter_msfg">Please enter the password!</string>
+    <string name="enter_email_msg">Please enter the email!</string>
+    <string name="enter_fullame_msg">Please enter the full name</string>
+    <string name="check_email_verify">Check out you\'re email to Verify!</string>
+    <string name="faild_email">Failed Email try again! You\'re email may not exist!</string>
+    <string name="emotio_msg">Your Emotion today is </string>
+    <string name="report_cacel_msg">Report Canceled!</string>
+    <string name="repore_saved">Report saved!</string>
+    <string name="some_we_msg">Something went waring</string>
+    <string name="you_do_have_complet_report">You don\'t have a complete report</string>
+    <string name="sucess_upload">Updated successfully</string>
+    <string name="dey_acess_camera">Deny access to the camera!</string>
+
+    <string name="main_doctor_label">Main Doctor</string>
+    <string name="main_user_label">Main User</string>
+    <string name="login_label">Login</string>
+    <string name="create_user_label">Create user account</string>
+    <string name="real_emotio_label">Real emotion report</string>
+    <string name="profile_label">Profile</string>
+    <string name="history_report_label">History Report</string>
+    <string name="doctor_profile_label">Doctor Profile</string>
+    <string name="cosult_room_label">Consulting room</string>
+    <string name="fav_label">Favorite</string>
+    <string name="psyho_tip_label">Psycho Tip</string>
+    <string name="history_report_details_label">History report details</string>
+
+    <string name="login_tv">Login</string>
+    <string name="email_hit">Email</string>
+    <string name="password_hit">Password</string>
+    <string name="login_view">Login</string>
+    <string name="create_new_account_tv">Create new account?</string>
+    <string name="login_as_doctor_view">Login As Doctor</string>
+    <string name="skip">SKIP</string>
+    <string name="doctors">Doctors</string>
+    <string name="psycho_tips">Psycho Tips</string>
+    <string name="consults">Consults</string>
+
+    <string name="your_emotion">Your Emotion?</string>
+    <string name="scan">SCAN</string>
+    <string name="accept_view">Accept</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="default_emotio">Default</string>
+    <string name="emotio_type">Emotions</string>
+    <string name="anger_type">anger</string>
+    <string name="fear_type">fear</string>
+    <string name="joy_type">joy</string>
+    <string name="sadanger_tyoe">sadness</string>
+    <string name="surprise_type">surprise</string>
+    <string name="tip_tv">Tip</string>
+    <string name="default_tip">Default tip</string>
+    <string name="doctors_suggestion">Doctors suggestion</string>
+    <string name="save_report">Save</string>
+    <string name="cancel_report">Cancel</string>
+    <string name="add_tips">Add Tips</string>
+    <string name="logout">Logout</string>
+    <string name="search">Search</string>
+    <string name="fav">fav</string>
+    <string name="analyse">Analyse</string>
+    <string name="request">Requests</string>
+    <string name="my_tips">My Tips</string>
+    <string name="history_reports">History reports</string>
+    <string name="update_info">Update info</string>
+    <string name="home">Home</string>
+    <string name="please_update_your_information">Please Update your information</string>
+    <string name="full_name">Full Name</string>
+    <string name="phone_hit">Phone</string>
+    <string name="city_hit">City</string>
+    <string name="language_hit">Language</string>
+    <string name="speciality_hit">Speciality</string>
+    <string name="update_now_hit">Update now</string>
+    <string name="cancel_hit">Cancel</string>
+    <string name="add_tip">Add Tip</string>
+    <string name="tip_title_hit">Tip title</string>
+    <string name="tip_content_hit">Tip content</string>
+    <string name="add_now_hit">Add Now</string>
+    <string name="cancel_ht">Cancel</string>
+    <string name="offline_online">Offline/Online</string>
+    <string name="offline">Offline</string>
+    <string name="online">Online</string>
+    <string name="update_dr_view">Update</string>
+    <string name="home_dr">Home</string>
+    <string name="start">Start</string>
+    <string name="finish">Finish</string>
+    <string name="personal_info">Personal info</string>
+    <string name="create_account">Create Account</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="sign_up">Sign up</string>
+    <string name="already_have_account">Already have account</string>
+    <string name="verify_with_email">Verify with you\'re email</string>
+    <string name="wait_to_consult">Wait To Consult...</string>
+
+    <array name="pick">
+        <item>Pick from camera</item>
+        <item>Pick from gallery</item>
+        <item>Cancel</item>
+
+
+    </array>
+
+    <string name="new_message_notification_title_template">New message: %1$s</string>
+
+    <!-- TODO: remove this placeholder text -->
+    <string name="new_message_notification_placeholder_text_template">You said %1$s and lorem ipsum
+        dolor sit amet, consectetur adipiscing elit. Etiam non enim magna. Morbi dictum, velit vel
+        semper venenatis, magna odio volutpat velit, at ullamcorper nulla lacus sed turpis.
+        Pellentesque vitae metus elit, nec tincidunt tellus. Integer sed nisl sem, ullamcorper
+        ornare lacus. Duis ac mauris sed massa congue volutpat. Donec sed erat sit amet turpis
+        viverra rhoncus sit amet nec magna. Donec lacinia ligula at libero volutpat volutpat nec nec
+        tortor.
+    </string>
+
+    <string name="action_share">Dismiss</string>
+    <string name="action_reply">Reply</string>
+
 
 </resources>

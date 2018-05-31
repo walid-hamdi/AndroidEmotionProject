@@ -4,7 +4,7 @@
 
 
         <shape>
-            <stroke android:width="0.5dp" android:color="@color/blue" />
+            <stroke android:width="0.5dp" android:color="@color/buttonColor" />
 
         </shape>
 
@@ -14,8 +14,7 @@
 
 
         <shape>
-            <solid android:color="@color/blueTrans" />
-            <stroke android:width="1dp" android:color="@color/blue" />
+            <stroke android:width="1dp" android:color="@color/buttonColorTrans" />
 
         </shape>
     </item>

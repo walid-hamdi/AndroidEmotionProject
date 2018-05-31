@@ -29,8 +29,7 @@ class SqlLiteFavorite(var context: Context) {
     private var dbInstance: SQLiteDatabase? = null
 
     init {
-        this.context = context
-        var db = SqlLiteFavoriteHelper(context)
+        val db = SqlLiteFavoriteHelper(context)
         dbInstance = db.writableDatabase
 
     }

@@ -26,8 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Do it now your emotion?"
-            android:textColor="@color/blue"
+            android:textColor="@color/titleColor"
             android:textSize="@dimen/slide_title"
             android:textStyle="italic" />
 

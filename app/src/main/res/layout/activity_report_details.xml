@@ -5,135 +5,125 @@
     android:layout_height="match_parent"
     tools:context="com.upfunstudio.emotionsocial.User.ReportDetailsActivity">
 
-    <LinearLayout
-        android:id="@+id/layout"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
+        android:layout_margin="2dp">
 
-
-        <com.github.mikephil.charting.charts.HorizontalBarChart
-            android:id="@+id/chart"
+        <LinearLayout
+            android:id="@+id/layout"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_weight="0"
-            android:background="@android:color/white" />
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/chartPie"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_weight="1" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|center_horizontal"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="0"
-            android:text="Your Emotion Today is Happy"
-            android:textColor="@color/blue"
-            android:textSize="20dp" />
+            <TextView
+                android:id="@+id/emotioType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="0"
+                android:text=""
+                android:textColor="@color/titleColor"
+                android:textSize="16dp" />
 
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/tipLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layout"
-        android:layout_margin="5dp"
-        android:background="@color/grey"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tipsText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="Tip"
-            android:textColor="@color/blue"
-            android:textSize="23dp" />
-
-        <ScrollView
-            android:id="@+id/scrollingTip"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:padding="10dp">
+            <TextView
+                android:id="@+id/tipsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0"
+                android:text="@string/tip_tv"
+                android:textColor="@color/titleColor"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/tip"
-                android:padding="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0"
                 android:gravity="left"
-                android:text="You need to make You need to makeYou need to makeYou need to makeYou need to makeYou need to makeYou need to makeYou need to makeYou need to makeYou need to makesome relax and after that help todo al ot of many thing"
-                android:textColor="#307aaf"
+                android:padding="2dp"
+                android:text="@string/default_tip"
+                android:textColor="@color/descriptionTitleColor"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/suggestText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0"
+                android:text="@string/doctors_suggestion"
+                android:textColor="@color/titleColor"
                 android:textSize="17dp" />
-        </ScrollView>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/viewPagerDoctorSuggest"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_below="@+id/suggestText"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0"
+                android:scrollbars="horizontal">
 
 
-    </LinearLayout>
-
-    <LinearLayout
-
-        android:id="@+id/viewp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tipLayout"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal">
+            </android.support.v7.widget.RecyclerView>
 
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/button_background"
-            android:onClick="buSaveReport"
-            android:text="Save"
-            android:textColor="#ffffff" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/layout"
+                android:layout_weight="0"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_background"
-            android:onClick="buCancelReport"
-            android:text="Cancel"
-            android:textColor="#ffffff" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_background"
+                    android:onClick="buSaveReport"
+                    android:text="@string/save_report"
+                    android:textColor="@color/white" />
 
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_background"
+                    android:onClick="buCancelReport"
+                    android:text="@string/cancel_report"
+                    android:textColor="@color/white" />
 
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/suggestText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/viewp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="3dp"
-        android:text="Doctors suggestion"
-        android:textColor="@color/blue"
-        android:textSize="20dp" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/viewPagerDoctorSuggest"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@+id/suggestText"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="2dp"
-        android:scrollbars="vertical">
+            </LinearLayout>
 
 
-    </android.support.v7.widget.RecyclerView>
-
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

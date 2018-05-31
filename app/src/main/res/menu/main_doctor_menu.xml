@@ -5,17 +5,17 @@
     <item
         android:id="@+id/profileMenuDoctor"
         android:icon="@drawable/ic_account_circle_black_24dp"
-        android:title="Profile"
+        android:title="@string/profile_label"
         app:showAsAction="always" />
     <item
         android:id="@+id/AddTipsDoctor"
         android:icon="@drawable/ic_add_circle_black_24dp"
-        android:title="Add Tips"
+        android:title="@string/add_tips"
         app:showAsAction="always" />
 
 
     <item
         android:id="@+id/logoutMenuDoctor"
-        android:title="Logout"
+        android:title="@string/logout"
         app:showAsAction="never" />
 </menu>

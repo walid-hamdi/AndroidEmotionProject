@@ -5,11 +5,11 @@
     <item
         android:id="@+id/profileMenu"
         android:icon="@drawable/ic_account_circle_black_24dp"
-        android:title="Profile"
+        android:title="@string/profile_label"
         app:showAsAction="always" />
     <item
         android:id="@+id/logout"
-        android:title="Logout"
+        android:title="@string/logout"
         app:showAsAction="never" />
 
 </menu>

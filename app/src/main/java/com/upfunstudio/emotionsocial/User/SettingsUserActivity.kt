@@ -1,9 +1,14 @@
 package com.upfunstudio.emotionsocial.User
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.view.View
@@ -17,6 +22,7 @@ import com.upfunstudio.emotionsocial.Companion.AdapterFramgentUpdate
 import com.upfunstudio.emotionsocial.R
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_profile.*
+
 
 class SettingsUserActivity : AppCompatActivity() {
 
@@ -57,18 +63,18 @@ class SettingsUserActivity : AppCompatActivity() {
         // get all user info
         mFireStore!!.collection("Users")
                 .document(mAuth!!.currentUser!!.uid)
-                .get()
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
+                .addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
 
-                        // read data to appear in profile user
-                        if (task.result.exists()) {
-                            defaultEmail.text = task.result.getString("email")
-                            defaultPhone.text = task.result.getString("phone")
-                            username.text = task.result.getString("fullName")
-                            languageSpeak.text = task.result.getString("language")
-                            cityPlace.text = task.result.getString("city")
-                            pathPicture = task.result.getString("profile_picture")
+                    try {
+
+                        if (documentSnapshot.exists() && documentSnapshot != null) {
+
+                            defaultEmail.text = documentSnapshot.getString("email")
+                            defaultPhone.text = documentSnapshot.getString("phone")
+                            username.text = documentSnapshot.getString("fullName")
+                            languageSpeak.text = documentSnapshot.getString("language")
+                            cityPlace.text = documentSnapshot.getString("city")
+                            pathPicture = documentSnapshot.getString("profile_picture")
                             // use picasso lib to adapate image in imageview
                             if (pathPicture.isNullOrEmpty()) {
                                 Picasso.with(applicationContext)
@@ -82,64 +88,106 @@ class SettingsUserActivity : AppCompatActivity() {
                                         .into(profile_picture)
                             }
 
+
                         }
+
+
+                    } catch (ex: Exception) {
                     }
 
 
                 }
 
-    }
 
+    }
 
     fun updatePhotoEvent(view: View) {
 
-        // pick picture from gallery phone
-        val intentFromGallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        startActivityForResult(Intent.createChooser(intentFromGallery,
-                "Please Pick Picture from gallery"), REQ_CODE_GALLERY)
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
+                    != PackageManager.PERMISSION_GRANTED) {
 
+                requestPermissions(arrayOf(android.Manifest.permission.CAMERA), PICK)
+
+
+                return
+
+            }
+
+
+        }
+        // pick picture from camera or gallery phone
+        pickPictureFromGalleryOrCamera()
+
+
+    }
+
+
+    // pick from camera or gallery
+
+    private fun pickPictureFromGalleryOrCamera() {
+        val items = resources.getStringArray(R.array.pick)
+
+        val builder = AlertDialog.Builder(this)
+                .setItems(items, { dialog, which ->
+
+                    if (items[which] == "Pick from camera" ||
+                            items[which] == "اختر من الكاميرا" ||
+                            items[which] == "Seleccionar de la cámara" ||
+                            items[which] == "Choisissez parmi la caméra") {
+
+
+                        val photo = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                        startActivityForResult(photo, REQ_CODE_CAMERA)
+
+
+                    } else if (items[which] == "Pick from gallery" ||
+                            items[which] == "Elija de la galería" ||
+                            items[which] == "Choisissez dans la galerie" ||
+                            items[which] == "اختر من المعرض") {
+
+                        val intentFromGallery = Intent(Intent.ACTION_PICK,
+                                MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                        startActivityForResult(Intent.createChooser(intentFromGallery,
+                                "Please Pick Picture from gallery"), REQ_CODE_GALLERY)
+
+                    } else {
+
+                        dialog.dismiss()
+                    }
+
+                })
+        builder.show()
 
     }
 
     companion object {
+        private const val REQ_CODE_CAMERA = 4
         private const val REQ_CODE_GALLERY = 2
+        private const val PICK = 1
+
     }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        when (requestCode) {
-            REQ_CODE_GALLERY -> {
-                if (resultCode == Activity.RESULT_OK) {
-                    val loading = SpotsDialog(this)
-                    loading!!.setTitle("Loading to upload...")
-                    loading!!.setCanceledOnTouchOutside(false)
-                    loading!!.show()
+        if (resultCode == Activity.RESULT_OK) {
 
-                    // store physic picture in storage
-                    val ref = mFirebaseStorage!!.reference
-                            .child("Users_Pictures")
-                            .child(mAuth!!.currentUser!!.uid)
-                    ref.putFile(data!!.data).addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            pathPicture = task.result.downloadUrl.toString()
+            when (requestCode) {
 
-                            // update pic path in database
-                            mFireStore!!.collection("Users")
-                                    .document(mAuth!!.currentUser!!.uid)
-                                    .update("profile_picture", pathPicture)
-                            loadData()
-                            loading!!.dismiss()
+                REQ_CODE_GALLERY -> {
+                    prepareImage(data!!.data)
 
+                }
+                REQ_CODE_CAMERA -> {
 
-                        } else {
-                            loading!!.hide()
-                            Toast.makeText(applicationContext, "Failed upload image "
-                                    , Toast.LENGTH_LONG).show()
+                    try {
+                        // todo : handle the error of get null value
+                        prepareImage(data = data!!.data)
 
-                        }
-
+                    } catch (ex: Exception) {
+                        Toast.makeText(this, "Problem happened", Toast.LENGTH_LONG).show()
 
                     }
 
@@ -152,6 +200,43 @@ class SettingsUserActivity : AppCompatActivity() {
 
         }
 
+
+    }
+
+    // prepare image ad pushed to firease
+    private fun prepareImage(data: Uri) {
+
+        val loading = SpotsDialog(this, R.style.loadingToUpload)
+        loading.setCanceledOnTouchOutside(false)
+        loading.show()
+
+
+        // store physic picture in storage
+        val ref = mFirebaseStorage!!.reference
+                .child("Users_Pictures")
+                .child("user_profile_pic" + mAuth!!.currentUser!!.uid)
+        ref.putFile(data).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                pathPicture = task.result.downloadUrl.toString()
+
+                // update pic path in database
+                mFireStore!!.collection("Users")
+                        .document(mAuth!!.currentUser!!.uid)
+                        .update("profile_picture", pathPicture)
+                loadData()
+
+                loading.dismiss()
+
+
+            } else {
+                loading.hide()
+                Toast.makeText(applicationContext, getString(R.string.fail_upload)
+                        , Toast.LENGTH_LONG).show()
+
+            }
+
+
+        }
 
     }
 
@@ -178,7 +263,7 @@ class SettingsUserActivity : AppCompatActivity() {
 
     fun historyReportEvent(view: View) {
         val intent = Intent(this, ListHistoryReportActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NEW_TASK)
+        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
 
 
@@ -190,14 +275,18 @@ class SettingsUserActivity : AppCompatActivity() {
                 .document(mAuth!!.currentUser!!.uid)
 
 
+
+
         if (!TextUtils.isEmpty(name)) {
-            username.text = name
-            userUpdate.update("fullName", name)
+            val usernameCap = name.substring(0, 1).toUpperCase() + name.substring(1)
+            username.text = usernameCap
+            userUpdate.update("fullName", usernameCap)
 
         }
         if (!TextUtils.isEmpty(city)) {
-            cityPlace.text = city
-            userUpdate.update("city", city)
+            val cityCap = city.substring(0, 1).toUpperCase() + city.substring(1)
+            cityPlace.text = cityCap
+            userUpdate.update("city", cityCap)
 
         }
         if (!TextUtils.isEmpty(phone)) {
@@ -215,13 +304,41 @@ class SettingsUserActivity : AppCompatActivity() {
 
         }
         if (!TextUtils.isEmpty(language)) {
-            languageSpeak.text = language
-            userUpdate.update("language", language)
+            val languageCap = language.substring(0, 1).toUpperCase() + language.substring(1)
+            languageSpeak.text = languageCap
+            userUpdate.update("language", languageCap)
 
 
         }
 
-        Toast.makeText(this, "Updated successfully", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.sucess_upload), Toast.LENGTH_LONG).show()
+
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+
+
+        when (requestCode) {
+
+            PICK -> {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    pickPictureFromGalleryOrCamera()
+                } else {
+
+                    Toast.makeText(this,
+                            getString(R.string.dey_acess_camera),
+                            Toast.LENGTH_LONG).show()
+                }
+
+            }
+
+        }
+
+
+
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
 
     }
 

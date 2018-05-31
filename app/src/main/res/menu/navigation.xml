@@ -4,15 +4,15 @@
     <item
         android:id="@+id/doctorList"
         android:icon="@drawable/ic_person_white_24dp"
-        android:title="Doctors" />
+        android:title="@string/doctors" />
 
     <item
         android:id="@+id/DoctorsTips"
         android:icon="@drawable/ic_layers_white_24dp"
-        android:title="Psycho Tips" />
+        android:title="@string/psycho_tips" />
     <item
         android:id="@+id/RecentConsult"
         android:icon="@drawable/ic_consult_24dp"
-        android:title="Consults" />
+        android:title="@string/consults" />
 
 </menu>

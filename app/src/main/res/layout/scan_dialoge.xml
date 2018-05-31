@@ -10,59 +10,64 @@
         android:layout_margin="30dp"
         android:background="@drawable/dialoge_background"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/textDisplay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="0"
-            android:gravity="center|center"
-            android:text="Your Emotion?"
-            android:textColor="@color/blue"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/your_emotion"
+            android:textColor="@color/titleColor"
             android:textSize="20dp" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/pictureCallingDr"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:layout_below="@+id/title"
-            android:layout_centerHorizontal="true"
-            android:layout_centerInParent="true"
-            android:layout_centerVertical="true"
             android:layout_margin="16dp"
-            android:visibility="gone"
-            android:layout_marginTop="20dp"
+            android:layout_weight="0"
             android:src="@drawable/profile_photo"
-             />
-
+            android:visibility="gone" />
 
 
         <Button
             android:id="@+id/scanButtonDialoge"
-            android:layout_width="90dp"
+            android:layout_width="wrap_content"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="0"
             android:background="@drawable/scan_button_background"
-            android:gravity="center"
-            android:text="Scan"
+            android:gravity="center|center_vertical"
+            android:text="@string/scan"
             android:textColor="#ffffff"
             android:textSize="17dp" />
 
 
+        <Button
+            android:id="@+id/accept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_weight="0"
+            android:background="@drawable/button_background"
+            android:text="@string/accept_view"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/cancelButtonDialoge"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
             android:layout_marginTop="10dp"
             android:layout_weight="0"
             android:background="@drawable/dialoge_background"
-            android:text="Cancel"
-            android:textColor="@color/blue" />
+            android:text="@string/cancel"
+            android:textColor="@color/titleColor" />
 
 
     </LinearLayout>

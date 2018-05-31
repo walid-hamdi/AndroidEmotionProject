@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.upfunstudio.emotionsocial.User.CameraAnalyse">
 
-    <FrameLayout
-        android:id="@+id/fragment"
+
+
+
+    <SurfaceView
+        android:id="@+id/cameraView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+    </SurfaceView>
 
 
     <Button
-        android:layout_alignParentBottom="true"
+        android:id="@+id/report"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="@string/prepare_face_msg"
         android:background="@drawable/button_background"
         android:onClick="getReportEvent"
-        android:text="GET REPORT"
-        android:textColor="#ffffff" />
+        android:textColor="@color/white" />
 
 
-</RelativeLayout>
+</LinearLayout>

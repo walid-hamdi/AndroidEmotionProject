@@ -1,24 +1,28 @@
 package com.upfunstudio.emotionsocial.User
 
+import android.app.SearchManager
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.view.MenuItemCompat
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.SearchView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.upfunstudio.emotionsocial.Companion.LoginActivity
 import com.upfunstudio.emotionsocial.Companion.TipContentActivity
+import com.upfunstudio.emotionsocial.Companion.WindowAnalyseOrCalling
 import com.upfunstudio.emotionsocial.R
 import kotlinx.android.synthetic.main.all_tips.view.*
-import kotlinx.android.synthetic.main.fragment_doctor_tips.view.*
+import kotlinx.android.synthetic.main.fragment_recycleview.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -28,13 +32,13 @@ class DoctorTipsFragment : Fragment() {
 
     private var mAuth: FirebaseAuth? = null
     private var mFireStore: FirebaseFirestore? = null
-    private var list: ArrayList<TipsForUsers>? = null
+    private var list: ArrayList<Any>? = null
     private var customAdapter: AdapterRecycle? = null
     private var sqlLiteFavorite: SqlLiteFavorite? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val v = inflater.inflate(R.layout.fragment_doctor_tips,
+        val v = inflater.inflate(R.layout.fragment_recycleview,
                 container, false)
 
 
@@ -42,6 +46,7 @@ class DoctorTipsFragment : Fragment() {
         mFireStore = FirebaseFirestore.getInstance()
         mAuth = FirebaseAuth.getInstance()
         sqlLiteFavorite = SqlLiteFavorite(this.context!!)
+        setHasOptionsMenu(true)
 
 
         // add offline capability
@@ -54,9 +59,12 @@ class DoctorTipsFragment : Fragment() {
 
         list = ArrayList()
         customAdapter = AdapterRecycle(context = container!!.context, list = list!!)
-        v.tipsRecycleview.layoutManager = LinearLayoutManager(this.activity)
-        v.tipsRecycleview.setHasFixedSize(true)
-        v.tipsRecycleview.adapter = customAdapter
+        v.recycleview.layoutManager = LinearLayoutManager(this.activity)
+        v.recycleview.setHasFixedSize(true)
+        v.recycleview.itemAnimator = DefaultItemAnimator()
+        v.recycleview.addItemDecoration(DividerItemDecoration(context,
+                DividerItemDecoration.VERTICAL))
+        v.recycleview.adapter = customAdapter
         prepareRecycleView()
 
 
@@ -75,35 +83,158 @@ class DoctorTipsFragment : Fragment() {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
 
-    private fun prepareRecycleView() {
+        if (mAuth!!.currentUser != null) {
 
-        //todo : get all doctors tip
+            activity!!.menuInflater.inflate(R.menu.main_menu, menu)
+
+            val searchView = MenuItemCompat.getActionView(menu!!.findItem(R.id.app_bar_search)) as SearchView
+
+            val searchManager = activity!!.getSystemService(Context.SEARCH_SERVICE)
+                    as SearchManager
+
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(activity!!.componentName))
+
+
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(text: String): Boolean {
+
+                    searchTip(text.substring(0, 1).toUpperCase() + text.substring(1))
+
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String): Boolean {
+
+
+                    return false
+                }
+            })
+
+
+        } else {
+
+            activity!!.menuInflater.inflate(R.menu.user_mai, menu)
+            val searchView = MenuItemCompat.getActionView(menu!!.findItem(R.id.search_user)) as SearchView
+
+            val searchManager = activity!!.getSystemService(Context.SEARCH_SERVICE)
+                    as SearchManager
+
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(activity!!.componentName))
+
+
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(text: String): Boolean {
+
+                    // weh typing to search for a dr depend his name
+                    searchTip(text.substring(0, 1).toUpperCase() + text.substring(1))
+
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String): Boolean {
+
+
+                    return false
+                }
+            })
+
+        }
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item!!.itemId) {
+            R.id.profileMenu -> {
+
+                val intent = Intent(activity, SettingsUserActivity::class.java)
+                startActivity(intent)
+
+
+            }
+            R.id.fav -> {
+
+                startActivity(Intent(activity, FavActivity::class.java))
+
+            }
+            R.id.AnalyseMenu -> {
+
+
+                val fr = WindowAnalyseOrCalling()
+                val bundle = Bundle()
+                // to know the analyse dialogue from main or form login & register
+                val placeActivity = "MainActivity"
+                bundle.putString("placeActivity", placeActivity)
+                fr.arguments = bundle
+                fr.show(activity!!.fragmentManager, "Show")
+
+
+            }
+            R.id.logoutMenu -> {
+
+                try {
+
+                    mAuth!!.signOut()
+                    checkUser()
+
+                } catch (ex: Exception) {
+                }
+
+            }
+
+            else -> {
+                return super.onOptionsItemSelected(item)
+
+            }
+
+
+        }
+
+        return true
+    }
+
+    private fun checkUser() {
+
+        // check for user
+        if (mAuth!!.currentUser == null) {
+            val intent = Intent(activity, LoginActivity::class.java)
+            startActivity(intent)
+        } else {
+            Toast.makeText(activity,
+                    getString(R.string.check_ccx_first),
+                    Toast.LENGTH_LONG).show()
+        }
+
+
+    }
+
+    private fun searchTip(tipTitle: String) {
+
+
         mFireStore!!
-                .collection("Doctors")
-                .document("IXCK6eH6NlbONFPxG8OMWtyiLsu2")
                 .collection("Tips")
-                .addSnapshotListener { documentSnapshots, _ ->
+                .whereEqualTo("titleTip", tipTitle)
+                .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
 
-                    for (change in documentSnapshots.documentChanges) {
-                        if (change.type == DocumentChange.Type.ADDED) {
+                    list!!.clear()
+                    try {
+                        for (change in querySnapshot.documents) {
+                            if (change.exists() && querySnapshot != null) {
 
-                            if (change.document.exists()) {
+
                                 var timeTip = ""
-                                val timeTips = change.document.get("timeTip")
+                                val timeTips = change.get("timeTip")
                                 if (timeTips != null) {
                                     val dateTime = timeTips as Date
                                     val date = Date(dateTime.time)
                                     timeTip = SimpleDateFormat("yyyy/MM/dd").format(date)
                                 }
                                 val contentTip = change
-                                        .document
                                         .getString("contentTip")
                                 val titleTip = change
-                                        .document
                                         .getString("titleTip")
                                 val username = change
-                                        .document
                                         .getString("username")
                                 if (!contentTip.isNullOrEmpty()
                                         && timeTip != null
@@ -116,45 +247,87 @@ class DoctorTipsFragment : Fragment() {
                                             username = username))
 
 
+                                    customAdapter!!.notifyDataSetChanged()
+
+
                                 }
                             }
-                        } else if (change.type == DocumentChange.Type.REMOVED) {
-
-                            customAdapter!!.notifyDataSetChanged()
-
                         }
 
 
+                    } catch (ex: Exception) {
                     }
-                    customAdapter!!.notifyDataSetChanged()
 
 
                 }
-
-
     }
 
-    // class for adapting
-    data class TipsForUsers(val contentTip: String,
-                            val time: String,
-                            val titleTip: String,
-                            val username: String)
+
+    private fun prepareRecycleView() {
+
+        // get all doctors tip
+
+        // get all tip from all drs
+        mFireStore!!
+                .collection("Tips")
+                .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+
+
+                    try {
+                        for (change in querySnapshot.documents) {
+                            if (change.exists() && querySnapshot != null) {
+
+
+                                var timeTip = ""
+                                val timeTips = change.get("timeTip")
+                                if (timeTips != null) {
+                                    val dateTime = timeTips as Date
+                                    val date = Date(dateTime.time)
+                                    timeTip = SimpleDateFormat("yyyy/MM/dd").format(date)
+                                }
+                                val contentTip = change.getString("contentTip")
+                                val titleTip = change.getString("titleTip")
+                                val username = change.getString("username")
+
+                                if (!contentTip.isNullOrEmpty()
+                                        && timeTip != null
+                                        && !titleTip.isNullOrEmpty()) {
+
+                                    list!!.add(TipsForUsers(
+                                            contentTip = contentTip,
+                                            time = timeTip,
+                                            titleTip = titleTip,
+                                            username = username))
+
+
+                                    customAdapter!!.notifyDataSetChanged()
+
+
+                                }
+                            }
+                        }
+
+
+                    } catch (ex: Exception) {
+                        Toast.makeText(context, "${ex.message}",
+                                Toast.LENGTH_LONG).show()
+                    }
+
+
+                }
+    }
 
 
     // appear list main of drs for users
     inner class AdapterRecycle(val context: Context,
-                               private val list: List<TipsForUsers>) :
+                               private val list: List<Any>) :
             RecyclerView.Adapter<AdapterRecycle.CustomViewHolder>() {
 
 
-        override fun getItemCount(): Int {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
 
-            return list.size
 
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CustomViewHolder {
-            val layoutInf = LayoutInflater.from(parent?.context)
+            val layoutInf = LayoutInflater.from(parent.context)
             val view = layoutInf.inflate(R.layout.all_tips, parent, false)
 
             return CustomViewHolder(view)
@@ -162,28 +335,31 @@ class DoctorTipsFragment : Fragment() {
 
         }
 
-        override fun onBindViewHolder(holder: CustomViewHolder?, position: Int) {
+        override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
 
-            val item = list[position]
+            val item = list[position] as TipsForUsers
+            try {
 
+                // full the title for all items for tip
+                holder.itemView.titleAlltips.text = item.titleTip
+                // full the title and show just first 20 letters
+                if (holder.itemView.titleAlltips.text.length > 15) {
+                    val split = item.titleTip.substring(0, 14)
+                    holder.itemView.titleAlltips.text = split.plus("...")
+                } else {
+                    holder.itemView.titleAlltips.text = item.titleTip
+                }
+                // full the publisher doctor for this tip
+                holder.itemView.publishedBy.text = "By ".plus(item.username)
+                // full the time stamp get it from server
+                holder.itemView.dateAllTips.text = item.time
+            } catch (ex: Exception) {
 
-            // full the title for all items for tip
-            holder!!.itemView.titleAlltips.text = item.titleTip
-            // full the title and show just first 20 letters
-            if (holder!!.itemView.titleAlltips.text.length > 10) {
-                val split = item.contentTip.substring(0, 9)
-                holder!!.itemView.titleAlltips.text = split.plus("...")
-            } else {
-                holder!!.itemView.titleAlltips.text = item.contentTip
             }
-            // full the publisher doctor for this tip
-            holder.itemView.publishedBy.text = "By ".plus(item.username)
-            // full the time stamp get it from server
-            holder.itemView.dateAllTips.text = item.time
-
 
             // add to fav list
-            holder!!.itemView.addFavButton.setOnClickListener {
+            holder.itemView.addFavButton.setOnClickListener {
+
 
                 val values = ContentValues()
                 values.put("title", item.titleTip)
@@ -191,21 +367,27 @@ class DoctorTipsFragment : Fragment() {
                 values.put("time", item.time)
                 values.put("published", item.username)
                 // check if item exist already or not the fav
-                if (SqlLiteFavorite.itemExits!!) {
-                    Toast.makeText(activity, "You added this item already!",
-                            Toast.LENGTH_SHORT).show()
 
-                } else {
-                    val result = sqlLiteFavorite!!.storeFavData(values)
-                    if (result > 0) {
-                        Toast.makeText(activity, "You added it to Favorite List",
+                try {
+
+                    if (SqlLiteFavorite.itemExits!!) {
+                        Toast.makeText(context, getString(R.string.you_add_already_msg),
                                 Toast.LENGTH_SHORT).show()
 
                     } else {
-                        Toast.makeText(activity, "Something went wrong to add it!",
-                                Toast.LENGTH_SHORT).show()
+                        val result = sqlLiteFavorite!!.storeFavData(values)
+                        if (result > 0) {
+                            Toast.makeText(context, getString(R.string.add_to_fav_msg),
+                                    Toast.LENGTH_SHORT).show()
 
+                        } else {
+                            Toast.makeText(activity, getString(R.string.somethig_wor_msg),
+                                    Toast.LENGTH_SHORT).show()
+
+                        }
                     }
+                } catch (ex: Exception) {
+
                 }
 
             }
@@ -227,9 +409,26 @@ class DoctorTipsFragment : Fragment() {
         }
 
 
+        override fun getItemCount(): Int {
+
+            return list.size
+
+        }
+
+
         inner class CustomViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
     }
 
 
 }
+
+// class for adapting
+data class TipsForUsers(val contentTip: String,
+                        val time: String,
+                        val titleTip: String,
+                        val username: String)
+
+
+
+

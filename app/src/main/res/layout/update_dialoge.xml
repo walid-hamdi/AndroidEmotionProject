@@ -3,8 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp"
-    android:background="@color/grey"
+    android:background="@color/doctorListColor"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/titleUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="@string/please_update_your_information"
+        android:textColor="@color/titleColor"
+        android:textSize="20dp" />
+
 
     <EditText
         android:id="@+id/changeFullname"
@@ -14,10 +26,10 @@
         android:layout_margin="3dp"
         android:layout_weight="0"
         android:background="@drawable/edit_background"
-        android:hint="Full Name"
+        android:hint="@string/full_name"
         android:padding="10dp"
-        android:textColor="@color/blue"
-        android:textColorHint="@color/blueTrans" />
+        android:textColor="@color/titleColor"
+        android:textColorHint="@color/descriptionTitleColor" />
 
     <EditText
         android:id="@+id/chngeMail"
@@ -27,10 +39,10 @@
         android:layout_margin="3dp"
         android:layout_weight="0"
         android:background="@drawable/edit_background"
-        android:hint="Email"
+        android:hint="@string/email_hit"
         android:padding="10dp"
-        android:textColor="@color/blue"
-        android:textColorHint="@color/blueTrans" />
+        android:textColor="@color/titleColor"
+        android:textColorHint="@color/descriptionTitleColor" />
 
     <EditText
         android:id="@+id/changePhone"
@@ -40,10 +52,10 @@
         android:layout_margin="3dp"
         android:layout_weight="0"
         android:background="@drawable/edit_background"
-        android:hint="Phone"
+        android:hint="@string/phone_hit"
         android:padding="10dp"
-        android:textColor="@color/blue"
-        android:textColorHint="@color/blueTrans" />
+        android:textColor="@color/titleColor"
+        android:textColorHint="@color/descriptionTitleColor" />
 
 
     <EditText
@@ -54,10 +66,10 @@
         android:layout_margin="3dp"
         android:layout_weight="0"
         android:background="@drawable/edit_background"
-        android:hint="City"
+        android:hint="@string/city_hit"
         android:padding="10dp"
-        android:textColor="@color/blue"
-        android:textColorHint="@color/blueTrans" />
+        android:textColor="@color/titleColor"
+        android:textColorHint="@color/descriptionTitleColor" />
 
     <EditText
         android:id="@+id/chageLanguage"
@@ -67,10 +79,10 @@
         android:layout_margin="3dp"
         android:layout_weight="0"
         android:background="@drawable/edit_background"
-        android:hint="Language"
+        android:hint="@string/language_hit"
         android:padding="10dp"
-        android:textColor="@color/blue"
-        android:textColorHint="@color/blueTrans" />
+        android:textColor="@color/titleColor"
+        android:textColorHint="@color/descriptionTitleColor" />
 
     <EditText
         android:id="@+id/chageSpec"
@@ -80,10 +92,10 @@
         android:layout_margin="3dp"
         android:layout_weight="0"
         android:background="@drawable/edit_background"
-        android:hint="Speciality"
+        android:hint="@string/speciality_hit"
         android:padding="10dp"
-        android:textColor="@color/blue"
-        android:textColorHint="@color/blueTrans" />
+        android:textColor="@color/titleColor"
+        android:textColorHint="@color/descriptionTitleColor" />
 
     <Button
         android:id="@+id/updateNowButton"
@@ -94,7 +106,7 @@
         android:layout_weight="0"
         android:background="@drawable/button_background"
         android:padding="10dp"
-        android:text="Update now"
+        android:text="@string/update_now_hit"
         android:textColor="#ffffff" />
 
     <Button
@@ -107,8 +119,8 @@
         android:layout_weight="0"
         android:background="@drawable/edit_background"
         android:padding="10dp"
-        android:text="Cancel"
-        android:textColor="@color/blue" />
+        android:text="@string/cancel_hit"
+        android:textColor="@color/titleColor" />
 
 
 </LinearLayout>
