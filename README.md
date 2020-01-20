@@ -1,5 +1,5 @@
 # Android Emotion Project
-This app helps people to know their emotions by using the camera , and also they can conlsult a doctors online
+This app helps people to know their emotions by using the camera , and also they can conlsult doctors online
 
 # Promo Video for the app
 
